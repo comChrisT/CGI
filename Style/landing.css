@@ -1,7 +1,11 @@
 body{
-    background-color: lightgrey;
+    background-color: deepskyblue;
 }
 
+.Game{
+    background-image: url("../media_landing_page/landing_background.jpg");
+
+}
 .header {
     background-color: darkred;
     overflow: hidden;
@@ -23,13 +27,24 @@ body{
     font-size: 100%;
 }
 
+.header li img{
+    display: block;
+    width: 40%;
+    text-align: left;
+}
+
 .firstParagraph {
-    color: #111;
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 50px;
+    color: black;
+    font-family: "Garamond", serif;
+    font-size: 40px;
+    text-align: center;
+}
+
+.secondParagraph {
+    color: black;
+    font-family: "Garamond", serif;
+    font-size: 40px;
     font-weight: bold;
-    letter-spacing: -1px;
-    line-height: 1;
     text-align: center;
 }
 
@@ -46,7 +61,7 @@ text-align: center;
 .screenshots img{
 
     margin-left: auto;
-    margin-right: auto;
-    width: 15%;
-
+    margin-right: 3em;
+    width: 20%;
+    border-radius: 30px;
 }
