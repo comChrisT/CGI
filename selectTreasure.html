@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
-    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">-->
-    <!--<span class="material-icons">-->
-    <!--search-->
-    <!--</span>-->
     <link rel="stylesheet" type="text/css" href="Style/app.css">
     <title>Treasure Hunt</title>
 </head>
-<body>
 
-
+<body  onload="get_List()">
 
 <div class="TopNav_container">
     <img class="TopNav_logo"  src="#icon" alt="logo">
     <p class="TopNav_title">Treasure Hunt</p>
     <ul class="TopNav_list">
-        <li><a href="#Help">HELP</a></li>
-        <li><a href="#About">ABOUT ></a></li>
+        <li><a href="#BACK">BACK</a></li>
+        <li><a href="selectTreasure.html">REFRESH</a></li>
     </ul>
 </div>
 
-
 <div class="Main_container">
     <br>
-    <div class="Box_Msg"> <p>Ahoy, pirates ! Let's find some treasures !</p></div>
+    <div class="Box_Msg"> <p>Select a treasure to hunt !</p></div>
     <img class="imgMain" src="#icon" alt="imgPirate"><br>
-    <button class="Btn_Start" onclick="document.location='selectTreasure.html'">Start !</button>
 
-
+    <div id="options">
+    <!--API list will be updated here-->
+    </div>
 </div>
 
 
 <script src="js/app.js"></script>
 </body>
+
 </html>

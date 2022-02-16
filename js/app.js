@@ -1,5 +1,5 @@
-const TH_BASE_URL = "https://codecyprus.org/th/api"; // the true API base url
-const TH_TEST_URL = "https://codecyprus.org/th/test-api"; // the test API base url
+const TH_BASE_URL = "https://codecyprus.org/th/api/"; // the true API base url
+const TH_TEST_URL = "https://codecyprus.org/th/test-api/"; // the test API base url
 
 /**
  * An asynchronous function to realize the functionality of getting the available 'treasure hunts' (using /list) and
@@ -11,52 +11,63 @@ const TH_TEST_URL = "https://codecyprus.org/th/test-api"; // the test API base u
 
 
 
+// testing
+async function List(){
+    let cha_List = document.getElementById("options");
 
-    async function get_List(){
-        var challengesList=document.getElementById("Content");
+    let cha_uuid;
+    let cha_name;
+    fetch(TH_BASE_URL + "list")
+        .then(response => response.json()) //Parse JSON text to JavaScript object
+        .then(jsonObject => {
+            for(var i=0; i<jsonObject.treasureHunts.length; i++){
 
-        fetch("https://codecyprus.org/th/api/list")
-            .then(response => response.json()) //Parse JSON text to JavaScript object
-            .then(jsonObject => {
-                //console.log(jsonObject); //TODO - Success, do something with the data.
+                cha_uuid=jsonObject.treasureHunts[i].uuid;
+                cha_name=jsonObject.treasureHunts[i].name;
 
-                for(var i=0; i<jsonObject.treasureHunts.length; i++){
-                    let listItem=document.createElement("li");
-                    let Refuuid=jsonObject.treasureHunts[i].uuid;
-                    //listItem.innerHTML = jsonObject.treasureHunts[i].name;
-                    listItem.innerHTML = "<a href='https://codecyprus.org/th/api/start?player=Guowei&app=Team2App&treasure-hunt-id="+Refuuid+"'>" + jsonObject.treasureHunts[i].name + "</a>";
-                    challengesList.appendChild(listItem);
-                }
-            });
-    }
+                // listItem.innerHTML = "<a href='https://codecyprus.org/th/api/start?player=Guowei&app=Team2App&treasure-hunt-id="+Refuuid+"'>" + jsonObject.treasureHunts[i].name + "</a>";
+                cha_List+=
+                    "<li>"
+                    +"<a href='https://codecyprus.org/th/api/start?player=Guowei&app=Team2App&treasure-hunt-id="+cha_uuid+"'>" + cha_name + "</a>"
+                    +"</li>";
+
+                //listItem.innerHTML = "<a href='register.html?uuid="+cuuid+"&cname='>" + jsonObject.treasureHunts[i].name + "</a>";
+                //cha_List.appendChild(listItem);
+            }
+        });
 
 
-async function doList() {
+}
+
+
+async function get_List() {
 
     // call the web service and await for the reply to come back and be converted to JSON
     const reply = await fetch(TH_BASE_URL + "list");
     const json = await reply.json();
 
     // identify the spinner, if available, using the id 'loader'...
-    let spinner = document.getElementById("loader");
+    //let spinner = document.getElementById("loader");
     // .. and stop it (by hiding it)
-    spinner.hidden = true;
+    //spinner.hidden = true;
 
-    // access the "treasureHunts" array on the reply message
     let treasureHuntsArray = json.treasureHunts;
-    let listHtml = "<ul>"; // dynamically form the HTML code to display the list of treasure hunts
+    let chaList = "<ul class='listCha'>"; // dynamically form the HTML code to display the list of treasure hunts
     for(let i = 0; i < treasureHuntsArray.length; i++) {
-        listHtml += // each treasure hunt item is shown with an individual DIV element
-            "<li>" +
-            "<b>" + treasureHuntsArray[i].name + "</b><br/>" + // the treasure hunt name is shown in bold...
-            "<i>" + treasureHuntsArray[i].description + "</i><br/>" + // and the description in italics in the following line
-            "<a href=\"javascript:select(\'" + treasureHuntsArray[i].uuid + "\')\">Start</a>" + // and the description in italics in the following line
-            "</li>";
+        chaList += "<li>"
+                +  "<a href='register.html?uuid="+treasureHuntsArray[i].uuid+"&name="+treasureHuntsArray[i].name+"'>"+treasureHuntsArray[i].name+"</a>"
+                +  "</li>";
     }
-    listHtml += "</ul>";
+    chaList += "</ul>";
     // update the DOM with the newly created list
-    document.getElementById("treasureHunts").innerHTML = listHtml;
+    document.getElementById("options").innerHTML = chaList;
+
 }
+// pass data from url
+console.log(location.search);
+
+
+
 
 /**
  * This function is called when a particular treasure hunt is selected. This is merely a placeholder as you're expected
