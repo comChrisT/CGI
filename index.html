@@ -14,14 +14,17 @@
     <title>CGI Game</title>
     <link rel="stylesheet"  href="Style/landing.css">
 </head>
+<script src="js/index.js"></script>
 <body>
-<div class="intro">
+<button id="goTopButton" onclick="GoTop()">Go top</button>
+<div class="intro" id="intro">
     <div class="header">
         <ul class="bar">
             <li><a href="#game">Game</a></li>
             <li><a href="#info">Project Information</a></li>
-            <li><a href="#team">Meet the team</a></li>
             <li><a href="#socialmedia">Social Media</a></li>
+            <li><a href="#team">Meet the team</a></li>
+
         </ul>
         <h1>Team CGI's <br>Treasure Hunt</h1>
         <h1><button onclick="document.location='app.html'">PLAY</button></h1>
@@ -29,31 +32,65 @@
 
 </div>
 
-<div class="Game" id="game">
+<div class="game" id="game">
     <div id="firstParagraph">
-        <h1 class="first">Do you like treasure hunts?<br> Well... <br>We ❤️ them too</h1>
-        <h2>Meet our ✨Game✨</h2>
+        <h1 class="first">Do you like treasure hunts? We ❤️ them too!</h1>
+        <h2>Meet our new ✨Game✨</h2>
     </div>
     <div class="screenshots">
         <img src="media_landing_page/screenshot_1.png" alt="screenshot1">
         <img src="media_landing_page/screenshot_2.png" alt="screenshot2">
         <img src="media_landing_page/screenshot_3.png" alt="screenshot2">
+        <h1><button  onclick="document.location='app.html'">PLAY</button></h1>
     </div>
+
+    <br>
 </div>
 <!-- Place holder divs -->
 <div id="info">
-    <h1>PROJECT INFORMATION</h1>
+    <h1 id="projectTitle">PROJECT INFORMATION</h1>
+    <blockquote class="quote">
+        Every time we create something new, we go from zero to one.
+        <br><cite> - Peter Thiel</cite>
+    </blockquote>
+    <h2 id="infoTitle" ><strong>About us:</strong></h2>
+    <p>So, do you want to know what we do?<br>
+        Basically, we are a team of three computer science undergraduates whose <strong>scope</strong>
+        is to plan and develop a popular, fully working treasure hunt web application.
+        At the same time, our <strong>purpose</strong> is to learn how to successfully
+        work as a team and meet the demands of our roles and deadlines. Also,
+        to learn how to research, organise, and design something from scratch.
+    </p>
+    <br>
 </div>
 
 <div id="socialmedia">
-    <h1>SOCIAL MEDIA</h1>
+    <h1 id="socialmediaTitle">SOCIAL MEDIA</h1>
+    <a href="https://twitter.com/TeamCGI1?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-dnt="true" data-show-count="false">Follow @TeamCGI1</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <br>
+    <a class="twitter-timeline" data-width="600" data-height="500" data-dnt="true" data-theme="dark" href="https://twitter.com/TeamCGI1?ref_src=twsrc%5Etfw">Tweets by TeamCGI1</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <br><br>
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <div class="g-ytsubscribe" data-channelid="UCWIOdDUFY4jlFGw4NDTKCrw" data-layout="default" data-count="hidden"></div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/K2eICt0X9Ro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br>
 </div>
-
 <div id ="team">
-    <h1>MEET THE TEAM</h1>
-    <p>Guowei: xxxx@xxx.com</p>
-    <p> Christsos: xxxx@xxx.com</p>
-    <p> iraklis: xxxx@xxx.com</p>
+    <h1 id="teamTitle">MEET THE TEAM</h1>
+    <img src="media_landing_page/christos.jfif" alt="christosPhoto">
+    <p>Christos Topaka<address>Email:<br> ctopaka@uclan.ac.uk</address></p>
+    <p>In the initial stage of the project, Christos focuses on the creation of the landing page as well as social media accounts.
+        In a later stage, he will join his other two teammates in the build of the application.
+    </p>
+    <img src="media_landing_page/guowei.jfif" alt="christosPhoto">
+    <p>Guowei Vasiliou<address>Email:<br>gvasiliou@uclan.ac.uk</address></p>
+    <p>Guowei focuses on the creation of the treasure hunt application due to his great understanding of the API.
+        Also, he is always available to help with any problems that may come up</p>
+    <img src="media_landing_page/iraklis.jfif" alt="christosPhoto">
+    <p>Iraklis Tchanturia<address>Email:<br>itchanturia@uclan.ac.uk</address></p>
+    <p>Iraklis focus is mainly on the build of the application.
+        Additionally, he notes down our meetings and helps with the landing page when needed</p>
+
 </div>
 </body>
 </html>
