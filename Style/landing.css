@@ -127,7 +127,7 @@ body{
 #team{
     display: block;
     background-color: gray;
-    height: 100vh;
+    height: auto;
     text-align: center;
 }
 
