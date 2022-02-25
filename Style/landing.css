@@ -3,7 +3,9 @@
     margin-right: 0.0em;
     margin-top: 0.0em;
 }
-body{
+body, html{
+    height: 100%;
+    margin:0;
 
 }
 .intro{
@@ -30,7 +32,7 @@ body{
 }
 
 .intro button:hover{
-    box-shadow: 0px 0px 22px 7px ;
+    box-shadow: 0 0 22px 7px ;
     background-color: #000428;
 }
 
@@ -46,7 +48,7 @@ body{
 }
 
 .game button:hover{
-    box-shadow: 0px 0px 22px 7px ;
+    box-shadow: 0 0 22px 7px ;
     background-color: #000428;
 }
 
@@ -67,7 +69,7 @@ body{
 }
 
 #goTopButton:hover{
-    box-shadow: 0px 0px 22px 7px ;
+    box-shadow: 0 0 22px 7px ;
     background-color: #fa6464;
     cursor: pointer;
 }
@@ -101,12 +103,21 @@ body{
 }
 
 .header li a{
-    color: black;
+    color: darkred;
     text-align: center;
     display: block;
     text-decoration: none;
     font-size: 1.0em;
 }
+.header li a:hover {
+    color: #fa6464;
+    font-size: 20px;
+}
+.header li a:active{
+    color: #fa6464;
+    font-size: 20px;
+}
+
 
 .screenshots{
     text-align: center;
@@ -131,17 +142,10 @@ body{
     text-align: center;
 }
 
-#projectTitle {
-   background-color: white;
-
-}
-
-
-
 #info h2{
     color: white;
     text-decoration: underline;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 #info{
@@ -164,7 +168,6 @@ body{
     width: 50%;
     padding: 10px;
     text-align: center;
-    color: white;
 
 }
 
@@ -189,9 +192,6 @@ body{
     text-align: center;
 }
 
-#socialmediaTitle{
-    background-color: white;
-}
 
 blockquote{
     display:block;
@@ -213,9 +213,9 @@ blockquote::before{
     font-weight: bold;
     color: white;
 
-position: inherit;
+    position: inherit;
     left: 1px;
-    top:0px;
+    top:0;
 }
 
 iframe{
@@ -226,9 +226,6 @@ iframe{
 #team{
     background-image: url("../media_landing_page/papaioannou.jpg"); /*From Papaioannou Kostas, Source:https://unsplash.com/photos/tysecUm5HJA */
     background-size: 100%;
-}
-#teamTitle{
-    background-color: white;
 }
 
 #team img{
@@ -243,7 +240,6 @@ iframe{
     width: 50%;
     padding: 10px;
     text-align: center;
-    color: white;
 
 }
 #team  address{
@@ -257,6 +253,38 @@ blockquote em{
     font-style: italic;
 }
 
-@media only screen and (max-width: 800px) {
+.indexTitles{
+    background-color: white;
+}
 
+
+
+@media only screen and (max-width: 800px) {
+    .indexTitles{
+        font-size: 20px;
+    }
+    iframe{
+        width: 450px;
+    }
+
+}
+@media only screen and (max-width: 600px) {
+    iframe{
+        width: 300px;
+    }
+    #info{
+        background-size: cover;
+    }
+    #firstParagraph h1{
+        font-size: 20px;
+    }
+    #firstParagraph h2{
+        font-size: 15px;
+    }
+    .intro button{
+        padding: 25px 45px 25px 45px;
+    }
+    .game button{
+        padding: 25px 50px 25px 50px;
+    }
 }
