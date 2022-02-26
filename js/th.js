@@ -8,9 +8,6 @@ const TH_TEST_URL = "https://codecyprus.org/th/test-api/"; // the test API base 
  * @return {Promise<void>}
  */
 
-
-
-
 // testing
 async function List(){
     let cha_List = document.getElementById("options");
