@@ -1,43 +1,71 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style/th-style.css">
     <title>Treasure Hunt</title>
 </head>
+
 <body>
 
-
-
 <div class="TopNav_container">
-    <img class="TopNav_logo"  src="images/th/th-logo.png" width="103px" height="54px" alt="logo">
+    <!--logo on left-->
+    <img class="TopNav_logo"  src="images/th/th-logo.png" width="90px" height="45px" alt="logo">
+    <!--Menu on right-->
+    <ul class="TopNav_list">
+        <li><a href="app.html">BACK</a></li>
+    </ul>
 </div>
 
 <div class="Main_container">
-    <br>
-    <div class="Box_Msg">
-        <p>Ahoy, sign the contract and we are ready to go !</p>
-        <p id="treasureName">Hunting treasure: </p>
+<!--    <br>-->
+
+    <div class="instruction">
+        <img class="imgPirate" src="images/th/th-pirate.png" width="225px" height="280px" alt="imgPirate"><br>
+        <div class="container_R">
+            <p id="Box_Msg"></p>
+            <!--            <div class="items">-->
+            <!--                <b>Player:</b>-->
+            <!--                <p>Guowei</p>-->
+            <!--                <b>Score:</b>-->
+            <!--                <p>0</p>-->
+            <!--                <button>skip</button>-->
+            <!--                <button>clue</button>-->
+            <!--            </div>-->
+        </div>
     </div>
-    <img class="imgMain" src="#icon" alt="imgPirate"><br>
 
-    <form name="registerPlayer" id="registerPlayer" action="#" method="get">
+    <hr> <!--testing-->
 
-        <input id="nameOfPlayer" type="text" title="Name can only contain letters, numbers, - and ."
-                  name="firstName" pattern="[a-zA-Z0-9.-]{1,20}" placeholder="Name..." maxlength="20" class="text" required="">
+    <div class="interaction">
 
-        <input type="hidden" id="cUUIDField" name="UUID"/>
-        <input type="hidden" id="cNameField" name="NAME"/>
+        <form name="registerPlayer" id="registerPlayer" action="#" method="get">
 
-        <select id="genderSelect" name="gender" placeholder="Select gender..." required="">
-                <option value="m">Male</option>
-                <option value="f">Female</option>
-                <option value="n">Would rather not say</option>
-        </select>
-        <button class="Btn_Start" type="submit" name="signUp">Sign Up !</button>
-    </form>
+            <input id="nameOfPlayer" type="text" title="Name can only contain letters, numbers, - and ." name="firstName" pattern="[a-zA-Z0-9.-]{1,20}" placeholder="Name..." maxlength="20" class="text" required="">
+
+            <input type="hidden" id="cUUIDField" name="UUID"/>
+            <input type="hidden" id="cNameField" name="NAME"/>
+
+            <!--        <select id="genderSelect" name="gender" placeholder="Select gender..." required="">-->
+            <!--                <option value="m">Male</option>-->
+            <!--                <option value="f">Female</option>-->
+            <!--                <option value="n">Would rather not say</option>-->
+            <!--        </select>-->
+            <button class="Btn_Start" type="submit" name="begin">Begin</button>
+
+        </form>
+
+    </div>
+
+<!--    <div class="Box_Msg">-->
+<!--        <p>Ahoy !, tell us who you are and we are ready to go !</p>-->
+<!--        <p id="treasureName">Selected treasure: </p>-->
+<!--    </div>-->
+
+
+
 
 </div>
 
@@ -49,11 +77,13 @@
 
     document.getElementById("cUUIDField").value = selectedChallengeUUID;
     document.getElementById("cNameField").value = selectedChallengeNAME;
-    document.getElementById("treasureName").innerHTML+="' "+selectedChallengeNAME+" '";
+    document.getElementById("Box_Msg").innerHTML+="Ahoy !, tell us who you are and we are ready to go !<br>Selected treasure: \" "+selectedChallengeNAME+" \".";
 
 </script>
 <script src="js/th.js"></script>
+
 </body>
+
 </html>
 
 

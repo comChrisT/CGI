@@ -11,26 +11,45 @@
 <body  onload="get_List()">
 
 <div class="TopNav_container">
-    <img class="TopNav_logo"  src="images/th/th-logo.png" width="103px" height="54px" alt="logo">
-    <!--    <p class="TopNav_title">Treasure Hunt</p>-->
+    <!--logo on left-->
+    <img class="TopNav_logo"  src="images/th/th-logo.png" width="90px" height="45px" alt="logo">
+    <!--Menu on right-->
     <ul class="TopNav_list">
-        <li><a href="#BACK">BACK</a></li>
+        <li><a href="index.html">BACK</a></li>
         <li><a href="app.html">REFRESH</a></li>
     </ul>
 </div>
 
 <div class="Main_container">
-    <br>
-    <div class="Box_Msg"> <p>Select a treasure to hunt !</p></div>
-    <img class="imgPirate" src="images/th/th-pirate.png" alt="imgPirate"><br>
+<!--    <br>-->
 
-    <div id="options">
-        <!--API list will be updated here-->
+    <div class="instruction">
+        <img class="imgPirate" src="images/th/th-pirate.png" width="225px" height="280px" alt="imgPirate"><br>
+        <div class="container_R">
+            <p id="Box_Msg">Ahoy pirates ! Welcome to the < Treasure Hunt - Web App >, Select a listed treasures below to begin !</p>
+<!--            <div class="items">-->
+<!--                <b>Player:</b>-->
+<!--                <p>Guowei</p>-->
+<!--                <b>Score:</b>-->
+<!--                <p>0</p>-->
+<!--                <button>skip</button>-->
+<!--                <button>clue</button>-->
+<!--            </div>-->
+        </div>
     </div>
+
+    <hr> <!--testing-->
+
+    <div class="interaction">
+        <div id="options">
+            <!--API list will be updated here-->
+        </div>
+    </div>
+
 </div>
 
-
 <script src="js/th.js"></script>
+
 </body>
 
 </html>

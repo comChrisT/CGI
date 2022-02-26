@@ -49,7 +49,7 @@ async function get_List() {
     //spinner.hidden = true;
 
     let treasureHuntsArray = json.treasureHunts;
-    let chaList = "<ul class='listCha'>"; // dynamically form the HTML code to display the list of treasure hunts
+    let chaList = "<ul class='Chall_list'>"; // dynamically form the HTML code to display the list of treasure hunts
     for(let i = 0; i < treasureHuntsArray.length; i++) {
         chaList += "<li>"
                 +  "<a href='register.html?uuid="+treasureHuntsArray[i].uuid+"&name="+treasureHuntsArray[i].name+"'>"+treasureHuntsArray[i].name+"</a>"

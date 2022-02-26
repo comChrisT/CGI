@@ -10,8 +10,16 @@ html, body{
     font-family:cursive,serif;
 }
 body{
-    background-image:url("../images/th/th-bg.jpg");
+    background-image:url("../images/th/th-bg.png");
     /*background-color: deepskyblue;*/
+
+    /* Full height */
+    /*height: 100%;*/
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
@@ -27,8 +35,8 @@ body{
     /*height:7%;*/
 }
 .TopNav_logo{
-    margin-left: 13px;
-    margin-top: 3px;
+    margin-left: 16px;
+    margin-top: 4px;
 }
 .TopNav_title{
     /*margin: 0 auto 0 0;*/
@@ -66,26 +74,48 @@ body{
 |						          MAIN CONTENT                                  |
 *********************************************************************************/
 .Main_container{
+    /*background-image:url("../images/th/1.jpg");*/
     /*width: 60%;*/
     /*margin: 0 auto;*/
-    /*height: 94%;*/
+    /*height: 100%;*/
     /*background-color: darkgray;*/
     /*display: block;*/
     /*text-align: center;*/
 }
-.Box_Msg{
-    /*background-color: lightblue;*/
-    /*word-wrap: break-word;*/
-    /*width: 60%;*/
-    /*margin: 0 auto;*/
-    /*padding: 20px 0;*/
-
-    /*border-radius: 15px;*/
-    /*border: 1px solid red;*/
+.instruction{
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
 }
-.Box_Msg p{
-    /*margin: 0;*/
-    /*padding: 10px;*/
+.container_R{
+    /*position: relative;*/
+}
+.items{
+
+    /*position: absolute;*/
+    /*bottom: 0;*/
+}
+.items p{
+    display: inline;
+
+}
+
+
+.interaction{
+    text-align: center;
+
+}
+#Box_Msg{
+    padding: 16px;
+    margin: 10px;
+    font-size: 120%;
+    background-color: white;
+    box-shadow: 10px 10px 10px gray;
+    word-wrap: break-word;
+    border-radius: 16px;
+    border: 1px solid red;
+
+
 }
 .imgPirate{
 
@@ -101,23 +131,27 @@ body{
 
 
 
-.listCha{
-    /*padding: 0;*/
+.Chall_list{
+    padding: 0;
+    width: 50%;
+    margin: auto;
 }
-.listCha li{
-    /*list-style-type: none;*/
-    /*border: 1px solid whitesmoke;*/
-
+.Chall_list li{
+    list-style-type: none;
+    border: 1px solid saddlebrown;
+    margin-bottom: 10px;
 }
-.listCha li a{
-    /*display: block;*/
-    /*text-decoration: none;*/
-    /*color: red;*/
-    /*font-weight: bold;*/
+.Chall_list li a{
+    text-decoration: none;
+    color: red;
+    display: block;
+    font-size: 150%;
+    font-weight: bold;
+    padding: 5px 0;
     /*padding: 20px;*/
 }
-.listCha li a:hover{
-    /*background-color: whitesmoke;*/
+.Chall_list li a:hover{
+    background-color: lightblue;
 }
 
 
