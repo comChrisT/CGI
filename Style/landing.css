@@ -28,7 +28,7 @@ body, html{
     border-radius: 10px;
     cursor: pointer;
     font-size: 20px;
-
+    margin-top: 75px;
 }
 
 .intro button:hover{
@@ -225,7 +225,8 @@ iframe{
 
 #team{
     background-image: url("../media_landing_page/papaioannou.jpg"); /*From Papaioannou Kostas, Source:https://unsplash.com/photos/tysecUm5HJA */
-    background-size: 100%;
+    background-size: cover;
+    background-position: center;
 }
 
 #team img{
@@ -266,7 +267,6 @@ blockquote em{
     iframe{
         width: 450px;
     }
-
 }
 @media only screen and (max-width: 600px) {
     iframe{
@@ -286,5 +286,33 @@ blockquote em{
     }
     .game button{
         padding: 25px 50px 25px 50px;
+    }
+    #goTopButton{
+        width:75px;
+        height:75px;
+        position:fixed;
+        bottom:10px;
+        left:10px;
+        border-radius: 50px;
+        font-weight: bold;
+        font-size: medium;
+
+    }
+}
+@media only screen and (max-width: 450px) {
+
+    #goTopButton{
+        width:60px;
+        height:60px;
+        position:fixed;
+        bottom:10px;
+        left:1px;
+        border-radius: 50px;
+        font-weight: bold;
+        font-size: small;
+
+    }
+    .header h1{
+        font-size: xxx-large;
     }
 }
