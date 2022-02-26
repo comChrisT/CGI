@@ -1,0 +1,133 @@
+
+*{
+    /*border:1px solid black;*/
+    box-sizing:border-box;
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+    font-family:cursive,serif;
+}
+body{
+    background-image:url("../images/th/th-bg.jpg");
+    /*background-color: deepskyblue;*/
+}
+
+
+/********************************************************************************
+|						    	TOP NAVIGATION BAR                              |
+*********************************************************************************/
+.TopNav_container{
+    background-color: seagreen;
+    display: flex;
+    justify-content: space-between;
+
+    /*align-items: center;*/
+    /*height:7%;*/
+}
+.TopNav_logo{
+    margin-left: 13px;
+    margin-top: 3px;
+}
+.TopNav_title{
+    /*margin: 0 auto 0 0;*/
+    /*font-weight: bold;*/
+    /*font-size: 80%;*/
+}
+.TopNav_list{
+    list-style-type:none;
+    padding: 0;
+    margin: 16px 0;
+
+    /*text-align: center;*/
+    /*background-color: darkgoldenrod;*/
+
+}
+.TopNav_list li{
+    display:inline-block;
+
+}
+.TopNav_list li a{
+   text-decoration: none;
+    color: gold;
+    padding: 16px;
+    font-weight: bold;
+    font-size: 120%;
+    text-shadow:2px 2px #663300;
+    /* display: block;*/
+    /*border-left: 1px dashed deepskyblue;*/
+}
+.TopNav_list li a:hover{
+    background-color: steelblue;
+    /*colors: steelblue,cornflowerblue*/
+}
+/********************************************************************************
+|						          MAIN CONTENT                                  |
+*********************************************************************************/
+.Main_container{
+    /*width: 60%;*/
+    /*margin: 0 auto;*/
+    /*height: 94%;*/
+    /*background-color: darkgray;*/
+    /*display: block;*/
+    /*text-align: center;*/
+}
+.Box_Msg{
+    /*background-color: lightblue;*/
+    /*word-wrap: break-word;*/
+    /*width: 60%;*/
+    /*margin: 0 auto;*/
+    /*padding: 20px 0;*/
+
+    /*border-radius: 15px;*/
+    /*border: 1px solid red;*/
+}
+.Box_Msg p{
+    /*margin: 0;*/
+    /*padding: 10px;*/
+}
+.imgPirate{
+
+    /*margin: 16px 0;*/
+}
+.Btn_Start{
+    /*margin: 16px 0;*/
+    /*cursor: pointer;*/
+    /*width: 30%;*/
+    /*max-width: 300px;*/
+    /*padding: 10px;*/
+}
+
+
+
+.listCha{
+    /*padding: 0;*/
+}
+.listCha li{
+    /*list-style-type: none;*/
+    /*border: 1px solid whitesmoke;*/
+
+}
+.listCha li a{
+    /*display: block;*/
+    /*text-decoration: none;*/
+    /*color: red;*/
+    /*font-weight: bold;*/
+    /*padding: 20px;*/
+}
+.listCha li a:hover{
+    /*background-color: whitesmoke;*/
+}
+
+
+/********************************************************************************
+|						          MOBILE CSS                                    |
+*********************************************************************************/
+
+@media only screen and (max-width: 425px){
+    .Main_container{
+        /*width: 100%;*/
+    }
+
+}
