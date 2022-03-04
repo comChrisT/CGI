@@ -9,39 +9,32 @@
 </head>
 
 <body  onload="get_List()">
-
-<div class="TopNav_container">
-    <!--logo on left-->
-    <img class="TopNav_logo"  src="images/th/th-logo.png" width="90px" height="45px" alt="logo">
+<!--Top navigation bar-->
+<div class="TopNav">
+    <!--Logo on left-->
+    <img class="TopNav_logo"  src="images/th/th-logo.png" alt="logo">
     <!--Menu on right-->
     <ul class="TopNav_list">
-        <li><a href="index.html">BACK</a></li>
         <li><a href="app.html">REFRESH</a></li>
+        <li><a href="index.html">BACK</a></li>
     </ul>
 </div>
 
-<div class="Main_container">
-<!--    <br>-->
+<!--Loading animation * not yet implemented-->
+<div id="loading_Animation"></div>
+
+<!--Main-->
+<div id="mainContent" style="display: none">
 
     <div class="instruction">
-        <img class="imgPirate" src="images/th/th-pirate.png" width="225px" height="280px" alt="imgPirate"><br>
-        <div class="container_R">
-            <p id="Box_Msg">Ahoy pirates ! Welcome to the < Treasure Hunt - Web App >, Select a listed treasures below to begin !</p>
-<!--            <div class="items">-->
-<!--                <b>Player:</b>-->
-<!--                <p>Guowei</p>-->
-<!--                <b>Score:</b>-->
-<!--                <p>0</p>-->
-<!--                <button>skip</button>-->
-<!--                <button>clue</button>-->
-<!--            </div>-->
-        </div>
+        <p id="Box_Msg">Ahoy pirates! Welcome to the < Treasure Hunt - Web App >, Select a listed treasures below to begin.</p>
+        <img class="imgPirate" src="images/th/th-pirate.png" alt="imgPirate">
     </div>
 
     <hr> <!--testing-->
 
     <div class="interaction">
-        <div id="options">
+        <div id="lists">
             <!--API list will be updated here-->
         </div>
     </div>
