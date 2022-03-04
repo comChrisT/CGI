@@ -7,16 +7,13 @@
 html, body{
     height: 100%;
     margin: 0;
-    font-family:cursive,serif;
+    /*font-family:"Times New Roman", Times, serif;*/
+    font-family: Arial, Helvetica, sans-serif;
 }
 body{
     background-image:url("../images/th/th-bg.png");
-    /*background-color: deepskyblue;*/
 
-    /* Full height */
-    /*height: 100%;*/
-
-    /* Center and scale the image nicely */
+    /*Center and scale the image*/
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -26,120 +23,88 @@ body{
 /********************************************************************************
 |						    	TOP NAVIGATION BAR                              |
 *********************************************************************************/
-.TopNav_container{
+.TopNav{
     background-color: seagreen;
     display: flex;
     justify-content: space-between;
-
-    /*align-items: center;*/
-    /*height:7%;*/
+    align-items: center;
+    min-height: 50px;
+    /*font-size: 100%;*/
 }
 .TopNav_logo{
     margin-left: 16px;
-    margin-top: 4px;
-}
-.TopNav_title{
-    /*margin: 0 auto 0 0;*/
-    /*font-weight: bold;*/
-    /*font-size: 80%;*/
+    margin-top: -5px;
+    /*divided by 8 from the original size*/
+    max-width: 90px;
+    max-height: 45px;
 }
 .TopNav_list{
     list-style-type:none;
     padding: 0;
     margin: 16px 0;
-
-    /*text-align: center;*/
-    /*background-color: darkgoldenrod;*/
-
 }
 .TopNav_list li{
     display:inline-block;
-
 }
 .TopNav_list li a{
-   text-decoration: none;
+    text-decoration: none;
     color: gold;
     padding: 16px;
     font-weight: bold;
-    font-size: 120%;
     text-shadow:2px 2px #663300;
-    /* display: block;*/
-    /*border-left: 1px dashed deepskyblue;*/
 }
 .TopNav_list li a:hover{
-    background-color: steelblue;
-    /*colors: steelblue,cornflowerblue*/
+    background-color: darkred;
 }
+
+
 /********************************************************************************
 |						          MAIN CONTENT                                  |
 *********************************************************************************/
-.Main_container{
-    /*background-image:url("../images/th/1.jpg");*/
-    /*width: 60%;*/
-    /*margin: 0 auto;*/
-    /*height: 100%;*/
-    /*background-color: darkgray;*/
-    /*display: block;*/
-    /*text-align: center;*/
+/* Parent container */
+#mainContent{
+
 }
+/* TOP - child container */
 .instruction{
-    margin-top: 16px;
     display: flex;
-    justify-content: center;
-}
-.container_R{
-    /*position: relative;*/
-}
-.items{
-
-    /*position: absolute;*/
-    /*bottom: 0;*/
-}
-.items p{
-    display: inline;
-
-}
-
-
-.interaction{
-    text-align: center;
-
+    flex-direction: column;
+    align-items: center;
 }
 #Box_Msg{
-    padding: 16px;
-    margin: 10px;
+    padding: 12px;
+    margin: 16px;
     font-size: 120%;
     background-color: white;
-    box-shadow: 10px 10px 10px gray;
+    box-shadow: 10px 10px gray;
     word-wrap: break-word;
     border-radius: 16px;
     border: 1px solid red;
-
+    max-width: 50%;
 
 }
 .imgPirate{
-
-    /*margin: 16px 0;*/
-}
-.Btn_Start{
-    /*margin: 16px 0;*/
-    /*cursor: pointer;*/
-    /*width: 30%;*/
-    /*max-width: 300px;*/
-    /*padding: 10px;*/
+    /*half of the original size*/
+    max-width:225px;
+    max-height:280px;
 }
 
+/* BOT - child container */
+.interaction{
 
+}
 
+/* API - LIST STYLE */
 .Chall_list{
+    text-align: center;
+    margin: 0 auto;
     padding: 0;
     width: 50%;
-    margin: auto;
 }
 .Chall_list li{
     list-style-type: none;
     border: 1px solid saddlebrown;
-    margin-bottom: 10px;
+    margin-bottom: 9px;
 }
 .Chall_list li a{
     text-decoration: none;
@@ -148,20 +113,35 @@ body{
     font-size: 150%;
     font-weight: bold;
     padding: 5px 0;
-    /*padding: 20px;*/
 }
 .Chall_list li a:hover{
     background-color: lightblue;
 }
 
+/* register.html - form style */
+.registerForm{
+    text-align: center;
+}
+#nameOfPlayer{
+    font-size: 140%;
+}
+.Btn_Start{
+    font-size: 140%;
+}
 
 /********************************************************************************
-|						          MOBILE CSS                                    |
+|					    	          MEDIA                                     |
 *********************************************************************************/
-
+/* If the screen size is 425px or less */
 @media only screen and (max-width: 425px){
-    .Main_container{
-        /*width: 100%;*/
+
+    #Box_Msg{
+        max-width: 80%;
+    }
+    /* API - LIST STYLE */
+    .Chall_list{
+
+        min-width: 80%;
     }
 
 }
