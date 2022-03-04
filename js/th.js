@@ -1,54 +1,21 @@
-const TH_BASE_URL = "https://codecyprus.org/th/api/"; // the true API base url
-const TH_TEST_URL = "https://codecyprus.org/th/test-api/"; // the test API base url
-
-/**
- * An asynchronous function to realize the functionality of getting the available 'treasure hunts' (using /list) and
- * processing the result to update the HTML with a bullet list with the treasure hunt names and descriptions. Also,
- * for each treasure hunt in the bullet list, a link is shown to trigger another function, the 'select'.
- * @return {Promise<void>}
- */
-
-// testing
-async function List(){
-    let cha_List = document.getElementById("options");
-
-    let cha_uuid;
-    let cha_name;
-    fetch(TH_BASE_URL + "list")
-        .then(response => response.json()) //Parse JSON text to JavaScript object
-        .then(jsonObject => {
-            for(var i=0; i<jsonObject.treasureHunts.length; i++){
-
-                cha_uuid=jsonObject.treasureHunts[i].uuid;
-                cha_name=jsonObject.treasureHunts[i].name;
-
-                // listItem.innerHTML = "<a href='https://codecyprus.org/th/api/start?player=Guowei&app=Team2App&treasure-hunt-id="+Refuuid+"'>" + jsonObject.treasureHunts[i].name + "</a>";
-                cha_List+=
-                    "<li>"
-                    +"<a href='https://codecyprus.org/th/api/start?player=Guowei&app=Team2App&treasure-hunt-id="+cha_uuid+"'>" + cha_name + "</a>"
-                    +"</li>";
-
-                //listItem.innerHTML = "<a href='register.html?uuid="+cuuid+"&cname='>" + jsonObject.treasureHunts[i].name + "</a>";
-                //cha_List.appendChild(listItem);
-            }
-        });
+// ALL API URL
+const TH_BASE_URL = "https://codecyprus.org/th/api/";
+const TH_LIST_URL = TH_BASE_URL+"list";
+const TH_START_URL = TH_BASE_URL+"start";
+const TH_QUESTION_URL = TH_BASE_URL+"question";
+const TH_TEST_URL = "https://codecyprus.org/th/test-api/";
 
 
-}
-
-
+// API - list call
 async function get_List() {
+    // a loder animetion * not implemented yet
+
 
     // call the web service and await for the reply to come back and be converted to JSON
-    const reply = await fetch(TH_BASE_URL + "list");
-    const json = await reply.json();
+    const reply = await fetch(TH_LIST_URL);
+    const list_obj = await reply.json();
 
-    // identify the spinner, if available, using the id 'loader'...
-    //let spinner = document.getElementById("loader");
-    // .. and stop it (by hiding it)
-    //spinner.hidden = true;
-
-    let treasureHuntsArray = json.treasureHunts;
+    let treasureHuntsArray = list_obj.treasureHunts;
     let chaList = "<ul class='Chall_list'>"; // dynamically form the HTML code to display the list of treasure hunts
     for(let i = 0; i < treasureHuntsArray.length; i++) {
         chaList += "<li>"
@@ -57,25 +24,43 @@ async function get_List() {
     }
     chaList += "</ul>";
     // update the DOM with the newly created list
-    document.getElementById("options").innerHTML = chaList;
+    document.getElementById("lists").innerHTML = chaList;
+    // last show the content
+    document.getElementById("mainContent").style.display="block";
+}
+
+// API - start call
+async function start(){
+    // Retrieve the query string data from the URL
+    const params = new URLSearchParams(location.search);
+    // Get the values of query keys and store to the variables
+    let playerNAME= params.get("playerName");
+    let ChallengeNAME= params.get("NAME");
+    let ChallengeUUID= params.get("UUID");
+
+    // Request from server
+    const reply = await fetch(TH_START_URL +"?player="+playerNAME+"&app="+ChallengeNAME+"&treasure-hunt-id="+ChallengeUUID);
+    const start_obj = await reply.json();
+
+    // checks for errors
+    if(start_obj.status==="OK") {
+        // creates four cookies
+        createCookie(COOKIE_CHALLENGE_NAME,ChallengeNAME,1);
+        createCookie(COOKIE_PLAYER_NAME,playerNAME,1);
+        createCookie(COOKIE_SESSION_ID, start_obj.session, 1);
+        createCookie(COOKIE_TOTALL_QUESTIONS, start_obj.numOfQuestions, 1);
+        // status ok proceed to question page
+        window.location.replace("questions.html");
+    }
+    else if(start_obj.status==="ERROR"){
+        // status error display msg go back
+        alert(start_obj.errorMessages);
+        history.back();
+    }
 
 }
-// pass data from url
-console.log(location.search);
 
 
 
 
-/**
- * This function is called when a particular treasure hunt is selected. This is merely a placeholder as you're expected
- * to realize this function-or an equivalent-to perform the necessary actions after a treasure hunt is selected.
- *
- * @param uuid this is the argument that corresponds to the UUID of the selected treasure hunt.
- * @return {Promise<void>}
- */
-async function select(uuid) {
-    // For now just print the selected treasure hunt's UUID. Normally, you're expected to guide the user in entering
-    // their name etc. and proceed to calling the '/start' command of the API to start a new session.
-    console.log("Selected treasure hunt with UUID: " + uuid);
-    // todo add your own code ...
-}
+
