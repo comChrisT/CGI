@@ -1,0 +1,22 @@
+html,body{
+    background-image:url("../images/th/th-bg.png");
+
+    /*Center and scale the image*/
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+table {
+    border: 10px groove green;
+    width:60%;
+
+}
+th, td {
+    border-bottom: 1px solid gray;
+    text-align: left;
+
+}
+.leaderboard{
+    display: flex;
+    justify-content: center;
+}
