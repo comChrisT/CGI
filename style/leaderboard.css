@@ -16,6 +16,7 @@ table {
     border: 10px groove green;
     border-radius: 10px;
     width:60%;
+    margin-bottom: 5px;
 }
 table span{
     margin-right: 10px;
