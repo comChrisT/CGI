@@ -6,17 +6,43 @@ html,body{
     background-position: center;
     height: 100vh;
 }
+h1{
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: xxx-large;
+}
 table {
     border: 10px groove green;
+    border-radius: 10px;
     width:60%;
-
+}
+table span{
+    margin-right: 10px;
+    margin-left: 0;
+    color: black;
 }
 th, td {
     border-bottom: 1px solid gray;
-    text-align: left;
+    text-align: center;
 
+}
+th{
+    padding:40px;
+    background-color: rgba(146,141,90,0.69);
+    font-size: x-large;
+    font-weight: bolder;
+}
+td{
+    padding: 50px;
+    color: #434344;
+    font-size: larger;
+    font-weight: bolder;
+    background-color: rgba(133,133,133,0.45);
 }
 .leaderboard{
     display: flex;
     justify-content: center;
+    margin-right:5px;
+    margin-bottom:5px;
 }
