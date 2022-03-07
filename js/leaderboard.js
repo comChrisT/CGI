@@ -37,17 +37,24 @@ getLeaderBoard(url);
  * see sample output of '/leaderboard’ at https://codecyprus.org/th#leaderboard
  */
 function handleLeaderboard(leaderboard) {
+    let options = { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+
     let html = ""; // used to include HTML code for the table rows
     let leaderboardArray = leaderboard['leaderboard'];
 
-    console.log(leaderboard);
+    let i=1;
+
     for(const entry of leaderboardArray) {
+        let date = new Date(entry['completionTime']);
+        let formattedDate = date.toLocaleDateString("en-UK", options);
+
         html += "<tr>" +
-            "<td>" + entry['player'] + "</td>" +
+            "<td>" +"<span>"+i+"."+"</span>"+ entry['player'] + "</td>" +
             "<td>" + entry['score'] + "</td>" +
-            "<td>" + entry['completionTime'] + "</td>" +
+            "<td>" + formattedDate + "</td>" +
             "</tr>";
+        i++;
     }
-    let leaderboardElement = document.getElementById('test-results-table'); // table
+    let leaderboardElement = document.getElementById('output-table'); // table
     leaderboardElement.innerHTML += html; // append generated HTML to existing
 }
