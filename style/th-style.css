@@ -14,6 +14,7 @@ body{
     background-image:url("../images/th/th-bg.png");
 
     /*Center and scale the image*/
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -91,12 +92,12 @@ body{
 
 /* BOT - child container */
 .interaction{
-
+    text-align: center;
 }
 
-/* API - LIST STYLE */
+
+/* API LIST */
 .Chall_list{
-    text-align: center;
     margin: 0 auto;
     padding: 0;
     width: 50%;
@@ -118,16 +119,20 @@ body{
     background-color: lightblue;
 }
 
-/* register.html - form style */
+/* register form */
 .registerForm{
     text-align: center;
 }
 #nameOfPlayer{
     font-size: 140%;
 }
-.Btn_Start{
+.registerBtn{
     font-size: 140%;
 }
+
+/* question forms */
+
+
 
 /********************************************************************************
 |					    	          MEDIA                                     |

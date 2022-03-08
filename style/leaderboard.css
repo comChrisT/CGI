@@ -1,11 +1,4 @@
-html,body{
-    background-image:url("../images/th/th-bg.png");
 
-    /*Center and scale the image*/
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-}
 h1{
     text-align: center;
     margin-top: 40px;

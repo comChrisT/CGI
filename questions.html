@@ -28,25 +28,66 @@
 <div id="mainContent" style="display: none">
 
     <div class="instruction">
-        <p id="Box_Msg">I ask you answer ok ?</p>
+        <p id="Box_Msg"></p>
         <img class="imgPirate" src="images/th/th-pirate.png" alt="imgPirate">
     </div>
 
     <hr> <!--testing-->
 
     <div class="interaction">
-        <div id="testingQNA">
+        <!--boolean type question-->
+        <form  name="interactForm" id="BOOLEAN" style="display: none">
 
-        </div>
+        </form>
+        <!--integer type question-->
+        <form name="interactForm" id="INTEGER" style="display: none">
+            <input id="ansINT" class="formINT" type="number" name="answerField" placeholder="Answer here..." size="30" required/>
+            <input class="BtnINT" type="button" name="submitBtn" value="Submit" onClick="validateField(document.getElementById('ansINT').value)"/>
+
+        </form>
+        <!--numeric type question-->
+        <form name="interactForm" id="NUMERIC" style="display: none">
+
+        </form>
+        <!--multiple choice type question-->
+        <form name="interactForm" id="MCQ" style="display: none">
+            <input id="answerABtn" class="MCQBtn" type="button" name="cABtn" value="A" onclick=""/>
+            <input id="answerBBtn" class="MCQBtn" type="button" name="cBBtn" value="B" onclick=""/>
+            <input id="answerCBtn" class="MCQBtn" type="button" name="cCBtn" value="C" onclick=""/>
+            <input id="answerDBtn" class="MCQBtn" type="button" name="cDBtn" value="D" onclick=""/>
+        </form>
+        <!--text type question-->
+        <form name="interactForm" id="TEXT" style="display: none">
+            <input id="answerText" class="text" type="text" name="answerText" placeholder="Answer here..." size="30" required/>
+            <input id="submitText" class="textBtn" type="button" name="submitBtnText" value="Submit" onClick=""/>
+        </form>
+
+        <script>
+            function validateField(ans){
+                console.log("answer field is:"+ans); // test
+                console.log("typeof:"+typeof(ans)); // test
+                //
+                if(ans === "" || ans == null){
+
+                }
+            }
+
+        </script>
+
     </div>
 
+<div class="BotNav">
+    <div id="popup_Msg"></div>
+    <div class="playerBar">
+
+    </div>
 </div>
-<!--LEADERBOARD PLACEHOLDER-->
-<!--FEEL FREE TO REMOVE-->
-<br>
-<br>
-<br>
-<a href="leaderboard.html">LEADERBOARD TEST</a>
+
+    <!--LEADERBOARD PLACEHOLDER-->
+    <!--FEEL FREE TO REMOVE-->
+    <div style="text-align: center"><a href="leaderboard.html" >LEADERBOARD TEST</a></div>
+
+</div>
 
 </body>
 

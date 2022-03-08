@@ -3,6 +3,7 @@ const TH_BASE_URL = "https://codecyprus.org/th/api/";
 const TH_LIST_URL = TH_BASE_URL+"list";
 const TH_START_URL = TH_BASE_URL+"start";
 const TH_QUESTION_URL = TH_BASE_URL+"question";
+const TH_ANSWER_URL = TH_BASE_URL+"answer";
 const TH_TEST_URL = "https://codecyprus.org/th/test-api/";
 
 
@@ -43,7 +44,7 @@ async function start(){
     const start_obj = await reply.json();
 
     // checks for errors
-    if(start_obj.status==="OK") {
+    if(start_obj.status=="OK") {
         // creates four cookies
         createCookie(COOKIE_CHALLENGE_NAME,ChallengeNAME,1);
         createCookie(COOKIE_PLAYER_NAME,playerNAME,1);
@@ -52,9 +53,9 @@ async function start(){
         // status ok proceed to question page
         window.location.replace("questions.html");
     }
-    else if(start_obj.status==="ERROR"){
+    else{
         // status error display msg go back
-        alert(start_obj.errorMessages);
+        alert(start_obj.status+":\n"+start_obj.errorMessages);
         history.back();
     }
 

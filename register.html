@@ -33,11 +33,11 @@
     <hr> <!--testing-->
 
     <div class="interaction">
-        <form name="registerPlayer" class="registerForm" action="start.html" method="get">
-            <input id="nameOfPlayer" type="text" title="Name can only contain letters, numbers, - and ." name="playerName" pattern="[a-zA-Z0-9.-]{1,20}" placeholder="Name..." maxlength="20" class="text" required="">
+        <form class="registerForm" action="start.html" method="get">
+            <input id="nameOfPlayer" type="text" title="Name can only contain letters, numbers, - and ." name="playerName" pattern="[a-zA-Z0-9.-]{1,20}" placeholder="Name..." maxlength="20" class="text" required>
             <input type="hidden" id="cUUIDField" name="UUID"/>
             <input type="hidden" id="cNameField" name="NAME"/>
-            <button class="Btn_Start" type="submit" name="start" value="startGame">Start!</button>
+            <button class="registerBtn" type="submit" name="start" value="startGame">Start!</button>
         </form>
     </div>
 
