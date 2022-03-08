@@ -42,17 +42,40 @@ function handleLeaderboard(leaderboard) {
     let html = ""; // used to include HTML code for the table rows
     let leaderboardArray = leaderboard['leaderboard'];
 
+
     let i=1;
 
     for(const entry of leaderboardArray) {
         let date = new Date(entry['completionTime']);
         let formattedDate = date.toLocaleDateString("en-UK", options);
-
-        html += "<tr>" +
-            "<td>" +"<span>"+i+"."+"</span>"+ entry['player'] + "</td>" +
-            "<td>" + entry['score'] + "</td>" +
-            "<td>" + formattedDate + "</td>" +
-            "</tr>";
+        if(i===1){
+            html += "<tr id='gold'>" +
+                "<td>" +"<span>"+i+"."+"</span>"+ entry['player'] + "</td>" +
+                "<td>" + entry['score'] + "</td>" +
+                "<td>" + formattedDate + "</td>" +
+                "</tr>";
+        }
+        else if(i===2){
+            html += "<tr id='silver'>" +
+                "<td>" +"<span>"+i+"."+"</span>"+ entry['player'] + "</td>" +
+                "<td>" + entry['score'] + "</td>" +
+                "<td>" + formattedDate + "</td>" +
+                "</tr>";
+        }
+        else if (i===3){
+            html += "<tr id='bronze'>" +
+                "<td>" + "<span>" + i + "." + "</span>" + entry['player'] + "</td>" +
+                "<td>" + entry['score'] + "</td>" +
+                "<td>" + formattedDate + "</td>" +
+                "</tr>";
+        }
+        else {
+            html += "<tr>" +
+                "<td>" + "<span>" + i + "." + "</span>" + entry['player'] + "</td>" +
+                "<td>" + entry['score'] + "</td>" +
+                "<td>" + formattedDate + "</td>" +
+                "</tr>";
+        }
         i++;
     }
     let leaderboardElement = document.getElementById('output-table'); // table
