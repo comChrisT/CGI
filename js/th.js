@@ -4,17 +4,23 @@ const TH_LIST_URL = TH_BASE_URL+"list";
 const TH_START_URL = TH_BASE_URL+"start";
 const TH_QUESTION_URL = TH_BASE_URL+"question";
 const TH_ANSWER_URL = TH_BASE_URL+"answer";
+const TH_SCORE_URL = TH_BASE_URL+"score";
+const TH_SKIP_URL = TH_BASE_URL+"skip";
 const TH_TEST_URL = "https://codecyprus.org/th/test-api/";
 
 
 // API - list call
 async function get_List() {
-    // a loder animetion * not implemented yet
+    // display loder, hide content
+    document.getElementById("loader").style.display="block";
+    document.getElementById("mainContent").style.display="none";
 
 
     // call the web service and await for the reply to come back and be converted to JSON
     const reply = await fetch(TH_LIST_URL);
     const list_obj = await reply.json();
+
+    console.log("List API:");console.log(list_obj);//***********************|    Test    |***********************
 
     let treasureHuntsArray = list_obj.treasureHunts;
     let chaList = "<ul class='Chall_list'>"; // dynamically form the HTML code to display the list of treasure hunts
@@ -27,6 +33,7 @@ async function get_List() {
     // update the DOM with the newly created list
     document.getElementById("lists").innerHTML = chaList;
     // last show the content
+    document.getElementById("loader").style.display="none";
     document.getElementById("mainContent").style.display="block";
 }
 
@@ -42,6 +49,8 @@ async function start(){
     // Request from server
     const reply = await fetch(TH_START_URL +"?player="+playerNAME+"&app="+ChallengeNAME+"&treasure-hunt-id="+ChallengeUUID);
     const start_obj = await reply.json();
+
+    console.log("Question API:");console.log(start_obj);//***********************|    Test    |***********************
 
     // checks for errors
     if(start_obj.status=="OK") {

@@ -1,14 +1,71 @@
 
+var sessionID = getCookie(COOKIE_SESSION_ID);
+
+function emptyAllAnsField(){
+    document.getElementById("ansINT").value="";
+    document.getElementById("ansNUM").value="";
+    document.getElementById("ansTXT").value="";
+}
+
+function hideAllForms(){
+    document.getElementById("BOOLEAN").style.display="none";
+    document.getElementById("INTEGER").style.display="none";
+    document.getElementById("NUMERIC").style.display="none";
+    document.getElementById("MCQ").style.display="none";
+    document.getElementById("TEXT").style.display="none";
+}
+
+
+function popUP(msg){
+    let pop=document.getElementById("popup_Msg");
+
+    pop.innerHTML=msg;
+    // show
+    pop.style.transition="opacity 1s";
+    pop.style.opacity="1";
+    pop.style.transition="margin 1s";
+    pop.style.margin="0 0 5px 0";
+    // hide
+    function hide(){
+        pop.style.transition="opacity 1s";
+        pop.style.opacity="0";
+        pop.style.transition="margin 1s";
+        pop.style.margin="0";
+    }
+    setTimeout(hide,2000);
+}
+
+async function Score(){
+
+    const reply = await fetch(TH_SCORE_URL +"?session="+sessionID);
+    const score_obj = await reply.json();
+
+    console.log("Score API:");console.log(score_obj);//***********************|    Test    |***********************
+
+    if(score_obj.status=="OK"){
+        document.getElementById("pScore").innerHTML=score_obj.score;
+    }
+    else{
+        alert(score_obj.status+":\n"+score_obj.errorMessages);
+        // window.document.location.href("leaderboard.html?session="+sessionID);
+    }
+
+}
+
 // Get questions from the server
 async function get_Question() {
-    // a loder animetion *not implemented yet
 
-    let sessionID = getCookie(COOKIE_SESSION_ID);
+    document.getElementById("loader").style.display="block";
+    document.getElementById("mainContent").style.display="none";
+
+    // reset
+    emptyAllAnsField();
+    hideAllForms();
 
     const reply = await fetch(TH_QUESTION_URL +"?session="+sessionID);
     const question_obj = await reply.json();
 
-    console.log(question_obj);// test
+    console.log("Question API:");console.log(question_obj);//***********************|    Test    |***********************
 
     // check status
     if(question_obj.status=="OK") {
@@ -27,16 +84,76 @@ async function get_Question() {
     }
 
     // shows content after its loaded
+    document.getElementById("loader").style.display="none";
     document.getElementById("mainContent").style.display="block";
-}
-
-
-async function Score(){
-
 
 }
 
-async function ans_Question(){
+
+async function ans_Question(ans){
+
+    if(navigator.onLine==false){
+        popUP("Connection error, Please make sure you have an internet connection");
+    }
+    else{
+        //update location
 
 
+        const reply = await fetch(TH_ANSWER_URL +"?session="+sessionID+"&answer="+ans);
+        const answer_obj = await reply.json();
+
+        console.log("Answer API:");console.log(answer_obj);//***********************|    Test    |***********************
+
+        if(answer_obj.status=="OK"){
+            if(answer_obj.completed==true){
+                window.location.href("leaderboard.html?sessionID="+sessionID);
+            }
+
+            popUP(answer_obj.message);
+            Score();
+            get_Question();
+
+        }
+        else{
+            alert(answer_obj.status+":\n"+answer_obj.errorMessages);
+            window.location.replace("leaderboard.html?session="+sessionID);
+        }
+
+    }
+
+}
+
+function handleInput(ans){
+
+    // if answer is not provided
+    if(ans === "" || ans == null){
+        popUP("Please provide an answer");
+    }
+    // Integer form is displayed, check the answer if its integer
+    else if(document.getElementById("INTEGER").style.display == "inline" && Number.isInteger(Number(ans))==false){
+        popUP("Please provide an INTEGER ( 1, 2, 3, ... )")
+    }
+    else{
+        ans_Question(ans);
+    }
+
+
+}
+
+async function skipQ(){
+
+    const reply = await fetch(TH_SKIP_URL +"?session="+sessionID);
+    const skip_obj = await reply.json();
+
+    console.log("Skip API:");console.log(skip_obj);//***********************|    Test    |***********************
+
+    if(skip_obj.status=="OK"){
+        if(skip_obj.completed==false){
+            popUP("Question skipped");
+            get_Question();
+        }
+    }
+    else{
+        alert(score_obj.status+":\n"+score_obj.errorMessages);
+    }
 }

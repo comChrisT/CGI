@@ -16,7 +16,7 @@ function getCookie(cookieName ){
     }
     return "";
 }
-let sessionID = getCookie(COOKIE_SESSION_ID);
+// let sessionID = getCookie(COOKIE_SESSION_ID);
 //console.log(output);
 
 function getLeaderBoard(url) {
