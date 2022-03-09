@@ -7,6 +7,7 @@ h1{
 }
 table {
     border: 10px groove green;
+    box-shadow: 10px 10px 25px 5px snow inset;
     border-radius: 10px;
     width:60%;
     margin-bottom: 5px;
@@ -39,4 +40,36 @@ td{
     justify-content: center;
     margin-right:5px;
     margin-bottom:5px;
+}
+
+#gold{
+    background-color: #FFD700;
+    box-shadow: 20px 20px 50px 10px snow inset;
+}
+#gold td{
+    color: whitesmoke;
+}
+#gold span{
+    color: whitesmoke;
+}
+#silver{
+    background-color: #7d7d7d;
+    box-shadow: 20px 20px 50px 10px snow inset;
+}
+#silver td{
+    color: whitesmoke;
+}
+#silver span{
+    color: whitesmoke;
+}
+
+#bronze{
+    background-color: #CD7F32;
+    box-shadow: 20px 20px 50px 10px snow inset;
+}
+#bronze td{
+    color:whitesmoke;
+}
+#bronze span{
+    color: whitesmoke;
 }
