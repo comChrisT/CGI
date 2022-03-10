@@ -94,13 +94,13 @@ td{
 }
 @media only screen and (max-width: 600px) {
     th{
-        padding:6px;
+        padding:4px;
         background-color: rgba(146,141,90,0.69);
         font-size: medium;
         font-weight: bolder;
     }
     td{
-        padding: 6px;
+        padding: 4px;
         color: #434344;
         font-size: medium;
         font-weight: bolder;
