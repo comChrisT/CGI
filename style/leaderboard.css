@@ -44,7 +44,7 @@ td{
 
 #gold{
     background-color: #FFD700;
-    box-shadow: 20px 20px 50px 10px snow inset;
+    box-shadow: 5px 5px 10px 2px snow inset;
 }
 #gold td{
     color: whitesmoke;
@@ -54,7 +54,7 @@ td{
 }
 #silver{
     background-color: #7d7d7d;
-    box-shadow: 20px 20px 50px 10px snow inset;
+    box-shadow: 5px 5px 10px 2px snow inset;
 }
 #silver td{
     color: whitesmoke;
@@ -65,7 +65,7 @@ td{
 
 #bronze{
     background-color: #CD7F32;
-    box-shadow: 20px 20px 50px 10px snow inset;
+    box-shadow: 5px 5px 10px 2px snow inset;
 }
 #bronze td{
     color:whitesmoke;
