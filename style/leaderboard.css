@@ -73,3 +73,40 @@ td{
 #bronze span{
     color: whitesmoke;
 }
+
+@media only screen and (max-width: 800px) {
+    h1{
+        font-size: x-large;
+    }
+    th{
+        padding:20px;
+        background-color: rgba(146,141,90,0.69);
+        font-size: large;
+        font-weight: bolder;
+    }
+    td{
+        padding: 25px;
+        color: #434344;
+        font-size: large;
+        font-weight: bolder;
+        background-color: rgba(133,133,133,0.45);
+    }
+}
+@media only screen and (max-width: 600px) {
+    h1{
+        font-size: large;
+    }
+    th{
+        padding:10px;
+        background-color: rgba(146,141,90,0.69);
+        font-size: medium;
+        font-weight: bolder;
+    }
+    td{
+        padding: 12px;
+        color: #434344;
+        font-size: medium;
+        font-weight: bolder;
+        background-color: rgba(133,133,133,0.45);
+    }
+}
