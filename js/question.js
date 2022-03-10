@@ -1,12 +1,14 @@
 
+// session id
 var sessionID = getCookie(COOKIE_SESSION_ID);
 
+// clears all input fields
 function emptyAllAnsField(){
     document.getElementById("ansINT").value="";
     document.getElementById("ansNUM").value="";
     document.getElementById("ansTXT").value="";
 }
-
+// hide all answer forms
 function hideAllForms(){
     document.getElementById("BOOLEAN").style.display="none";
     document.getElementById("INTEGER").style.display="none";
@@ -14,8 +16,7 @@ function hideAllForms(){
     document.getElementById("MCQ").style.display="none";
     document.getElementById("TEXT").style.display="none";
 }
-
-
+// popup message
 function popUP(msg){
     let pop=document.getElementById("popup_Msg");
 
@@ -24,7 +25,7 @@ function popUP(msg){
     pop.style.transition="opacity 1s";
     pop.style.opacity="1";
     pop.style.transition="margin 1s";
-    pop.style.margin="0 0 5px 0";
+    pop.style.margin="0 0 10px 0";
     // hide
     function hide(){
         pop.style.transition="opacity 1s";
@@ -34,7 +35,7 @@ function popUP(msg){
     }
     setTimeout(hide,2000);
 }
-
+// Score API
 async function Score(){
 
     const reply = await fetch(TH_SCORE_URL +"?session="+sessionID);
@@ -47,12 +48,12 @@ async function Score(){
     }
     else{
         alert(score_obj.status+":\n"+score_obj.errorMessages);
-        // window.document.location.href("leaderboard.html?session="+sessionID);
+
     }
 
 }
 
-// Get questions from the server
+// Questions API
 async function get_Question() {
 
     document.getElementById("loader").style.display="block";
@@ -69,11 +70,17 @@ async function get_Question() {
 
     // check status
     if(question_obj.status=="OK") {
+
+        if(question_obj.canBeSkipped==true){
+            document.getElementById("skipBtn").style.display="inline";
+        }
+        else {
+            document.getElementById("skipBtn").style.display="none";
+        }
         // display the question
         document.getElementById("Box_Msg").innerHTML=question_obj.questionText;
         // show the appropriate answer form based on the question type
         document.getElementById(question_obj.questionType).style.display="inline";
-
 
 
     }
@@ -96,7 +103,7 @@ async function ans_Question(ans){
         popUP("Connection error, Please make sure you have an internet connection");
     }
     else{
-        //update location
+        //update location *not implemented yet
 
 
         const reply = await fetch(TH_ANSWER_URL +"?session="+sessionID+"&answer="+ans);
@@ -106,7 +113,8 @@ async function ans_Question(ans){
 
         if(answer_obj.status=="OK"){
             if(answer_obj.completed==true){
-                window.location.href("leaderboard.html?sessionID="+sessionID);
+                alert("That was the last question");
+                window.location.replace("leaderboard.html?sessionID="+sessionID);
             }
 
             popUP(answer_obj.message);

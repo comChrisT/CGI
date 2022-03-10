@@ -34,10 +34,9 @@ function getCookie(cookieName) {
 // Check if the cookie name exits using previous function
 function cookieExists(cookieName) {
     if (getCookie(cookieName) != "") return true; else return false;
-
 }
 
-// Delete cookie
+// Delete cookie *may not need
 function deleteCookie(cookieName) {
     document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }

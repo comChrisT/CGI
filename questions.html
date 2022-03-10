@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style/th-style.css">
-    <title>Treasure Hunt</title>
     <script src="js/cookies.js"></script>
+    <title>Treasure Hunt</title>
+    <script>document.title=getCookie(COOKIE_CHALLENGE_NAME)</script>
+    <link rel="icon" href="images/th/th-small-flag.png">
     <script src="js/th.js"></script>
     <script src="js/question.js"></script>
 </head>
@@ -22,10 +24,10 @@
 </div>
 
 <!--Loader-->
-<div id="loader">Loading ...</div>
+<div id="loader" style="display: none">Loading ...</div>
 
 <!--Main-->
-<div id="mainContent">
+<div id="mainContent" style="display: block">
 
     <div class="instruction">
         <p id="Box_Msg"></p>
@@ -68,23 +70,22 @@
 
 
     <div class="BotNav">
-        <div id="popup_Msg" ></div>
+        <div id="popup_Msg"></div>
         <div class="pInfo">
             <div class="pName"><b>Player: </b><span id="pName" style="color: darkblue"></span></div>
             <div class="pScore"><b>Score: </b><span id="pScore" style="color: darkblue"></span></div>
         </div>
         <div class="pOptions">
-            <div class="navBtn" onclick="skipQ()">Skip</div>
-            <div class="navBtn" onclick="window.location.replace('leaderboard.html')">Leaderboard</div>
+            <div id="skipBtn" class="oBtn" onclick="skipQ()">Skip</div>
+            <div class="oBtn" onclick="window.location.replace('leaderboard.html')">Leaderboard</div>
         </div>
     </div>
-    <script>
-        document.getElementById("pName").innerHTML+=getCookie(COOKIE_PLAYER_NAME);
-    </script>
 
-
+<script>
+    // display player name
+    document.getElementById("pName").innerHTML=getCookie(COOKIE_PLAYER_NAME);
+</script>
 </div>
 
 </body>
-
 </html>

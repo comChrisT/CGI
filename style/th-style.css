@@ -58,11 +58,9 @@ body{
     opacity: 0.5;
 }
 
-
 /********************************************************************************
 |						          MAIN CONTENT                                  |
 *********************************************************************************/
-/* Parent container */
 #loader{
     display: block;
     position: absolute;
@@ -73,6 +71,7 @@ body{
     color: darkred;
     font-weight: bold;
 }
+/* Parent container */
 #mainContent{
     display: none;
 }
@@ -98,7 +97,6 @@ body{
     /*half of the original size*/
     width:225px;
     height:280px;
-
 }
 
 /* BOT - child container */
@@ -107,7 +105,7 @@ body{
 }
 
 /* button style */
-.navBtn{
+.oBtn{
     color: gold;
     margin-right: 5px;
     padding: 10px;
@@ -115,11 +113,11 @@ body{
     background-color: darkred;
     cursor: pointer;
 }
-.navBtn:hover{
+.oBtn:hover{
     opacity: 0.5;
 }
 
-/* API LIST */
+/*---| list API style |---*/
 .Chall_list{
     margin: 0 auto;
     padding: 0;
@@ -142,7 +140,7 @@ body{
     background-color: lightblue;
 }
 
-/* register form */
+/*---| register form style |---*/
 .registerForm{
     text-align: center;
 }
@@ -153,24 +151,41 @@ body{
     font-size: 140%;
 }
 
-/* question forms */
-#BOOLEAN{ display: none; }
-#BOOLEAN input{ font-size: 170%; }
-#INTEGER{ display: none; }
-#INTEGER input{ font-size: 140%; }
-#NUMERIC{ display: none; }
-#NUMERIC input{ font-size: 140%; }
-#MCQ{ display: none; }
+/*---| question page style |---*/
+#BOOLEAN{
+    display: none;
+}
+#BOOLEAN input{
+    font-size: 170%;
+}
+#INTEGER{
+    display: none;
+}
+#INTEGER input{
+    font-size: 140%;
+}
+#NUMERIC{
+    display: none;
+}
+#NUMERIC input{
+    font-size: 140%;
+}
+#MCQ{
+    display: none;
+}
 #MCQ input{
     min-width: 20%;
     font-size: 250%;
     padding-top: 8px;
     padding-bottom: 8px;
 }
-#TEXT{ display: none; }
-#TEXT input{ font-size: 100%; }
-
-/* BotNav only in question page */
+#TEXT{
+    display: none;
+}
+#TEXT input{
+    font-size: 100%;
+}
+/* BotNav in question page */
 .BotNav{
     background-color: seagreen;
     min-height: 50px;
@@ -185,26 +200,27 @@ body{
 }
 .pInfo{
     background-color: #c9f1fb;
-    padding: 14px 10px;
+    padding: 15px 10px;
     border:1px solid red;
     opacity: 0.85;
-}
-.pInfo div{
-    display: inline;
 }
 .pOptions{
     white-space: nowrap;
 }
-.pOptions div{
-    display: inline;
-}
 .pName{
     margin-right: 10px;
+    display: inline;
+}
+.pScore{
+    display: inline;
+}
+.oBtn{
+    display: inline;
 }
 #skipBtn{
     margin-left: 5px;
 }
-
+/* popup */
 #popup_Msg{
     opacity: 0;
     word-break: break-word;
@@ -214,9 +230,10 @@ body{
     border-radius: 3px;
     padding: 10px;
     position: fixed;
-    bottom:6%;
+    bottom:50px;
     left:10px;
 }
+/* mcq button */
 .cBtn{
     cursor: pointer;
     margin: 4px;
@@ -237,39 +254,43 @@ body{
 @media only screen and (max-width: 425px){
 
     .imgPirate{
-
+        width: 50%;
+        height: auto;
     }
     #Box_Msg{
         max-width: 80%;
     }
-    /* API - LIST STYLE */
     .Chall_list{
         min-width: 80%;
     }
-    /* BotNav */
-    .BotNav{
-
-    }
     .pInfo{
-        padding: 7px 2px 7px 0;
-    }
-    .pInfo div{
-        display: inherit;
-    }
-    .pOptions{
-
+        padding: 6px 2px 6px 0;
     }
     .pName{
         margin-right: 0;
+        display: inherit;
     }
-    .navBtn{
+    .pScore{
+        display: inherit;
+    }
+    .oBtn{
         padding-top: 16px;
         padding-bottom: 16px;
     }
+    #skipBtn{
+        margin-right: 0;
+    }
     #popup_Msg{
         max-width: unset;
+        text-align: center;
         width: 100%;
         left: 0;
-        bottom: 70px;
+        bottom: 50px;
+    }
+}
+@media only screen and (max-width: 306px) {
+
+    #popup_Msg{
+        bottom: 68px;
     }
 }
