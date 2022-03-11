@@ -48,7 +48,6 @@ async function Score(){
     }
     else{
         alert(score_obj.status+":\n"+score_obj.errorMessages);
-
     }
 
 }
@@ -70,6 +69,11 @@ async function get_Question() {
 
     // check status
     if(question_obj.status=="OK") {
+        // no more question
+        if(question_obj.completed==true){
+            alert("That was the last question.");
+            window.location.replace("leaderboard.html?sessionID="+sessionID);
+        }
 
         if(question_obj.canBeSkipped==true){
             document.getElementById("skipBtn").style.display="inline";
@@ -112,11 +116,6 @@ async function ans_Question(ans){
         console.log("Answer API:");console.log(answer_obj);//***********************|    Test    |***********************
 
         if(answer_obj.status=="OK"){
-            if(answer_obj.completed==true){
-                alert("That was the last question");
-                window.location.replace("leaderboard.html?sessionID="+sessionID);
-            }
-
             popUP(answer_obj.message);
             Score();
             get_Question();
@@ -124,7 +123,7 @@ async function ans_Question(ans){
         }
         else{
             alert(answer_obj.status+":\n"+answer_obj.errorMessages);
-            window.location.replace("leaderboard.html?session="+sessionID);
+
         }
 
     }
@@ -156,12 +155,15 @@ async function skipQ(){
     console.log("Skip API:");console.log(skip_obj);//***********************|    Test    |***********************
 
     if(skip_obj.status=="OK"){
-        if(skip_obj.completed==false){
-            popUP("Question skipped");
-            get_Question();
+        if(skip_obj.completed==true){
+            popUP("Skipped last question");
         }
+        else{
+            popUP("Question skipped");
+        }
+        get_Question();
     }
     else{
-        alert(score_obj.status+":\n"+score_obj.errorMessages);
+        alert(skip_obj.status+":\n"+skip_obj.errorMessages);
     }
 }

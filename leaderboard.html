@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Testing TH API</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="icon" href="images/th/th-small-flag.png">
     <!--Style sheets -->
     <link rel="stylesheet" href="style/leaderboard.css"/>
     <link rel="stylesheet" type="text/css" href="style/th-style.css">
@@ -12,7 +13,6 @@
     <script src="js/th.js"></script>
     <script src="js/question.js"></script>
     <script src ="js/leaderboard.js"></script>
-
 </head>
 <body>
 
@@ -22,7 +22,8 @@
     <!--Menu on right-->
     <ul class="TopNav_list">
         <li><a href="leaderboard.html">REFRESH</a></li>
-        <li><a href="app.html">PLAY AGAIN</a></li>
+        <li><a id="displayB" href="questions.html">BACK</a></li>
+        <li><a id="displayA" href="app.html" style="display: none">PLAY AGAIN</a></li>
     </ul>
 </div>
 
@@ -38,6 +39,22 @@
     </tr>
 </table>
 </div>
+<script>
+    async function end(){
+        const reply =  await fetch(TH_SCORE_URL +"?session="+sessionID);
+        const data_obj =  await reply.json();
 
+        if(data_obj.complete==true || data_obj.finished==true){
+            document.getElementById("displayB").style.display="none";
+            document.getElementById("displayA").style.display="inline";
+        }
+        else{
+            // document.getElementById("displayB").style.display="none";
+            // document.getElementById("displayA").style.display="inline";
+        }
+    }
+end();
+
+</script>
 </body>
 </html>

@@ -25,10 +25,23 @@ async function get_List() {
 
     let treasureHuntsArray = list_obj.treasureHunts;
     let chaList = "<ul class='Chall_list'>"; // dynamically form the HTML code to display the list of treasure hunts
+    let currTime = new Date().getTime(); // Get current time (miliseconds)
     for(let i = 0; i < treasureHuntsArray.length; i++) {
-        chaList += "<li>"
-                +  "<a href='register.html?uuid="+treasureHuntsArray[i].uuid+"&name="+treasureHuntsArray[i].name+"'>"+treasureHuntsArray[i].name+"</a>"
-                +  "</li>";
+        let startTime = treasureHuntsArray[i].startsOn; // Get the treasure hunt start time
+        // active
+        if(currTime + 300000 >= startTime){
+            chaList += "<li>"
+                    +  "<a class='active' href='register.html?uuid="+treasureHuntsArray[i].uuid+"&name="+treasureHuntsArray[i].name+"'>"+treasureHuntsArray[i].name+"</a>"
+                    +  "</li>";
+        }
+        // inactive
+        else {
+            chaList += "<li>"
+                    +  "<a class='inactive' onclick='alert(\"< "+treasureHuntsArray[i].name+" > is inactive. Please choose a different one\")'>"+treasureHuntsArray[i].name+"</a>"
+                    +  "</li>";
+        }
+
+
     }
     chaList += "</ul>";
     // update the DOM with the newly created list
@@ -71,7 +84,9 @@ async function start(){
 
 }
 
+function thCompleted(){
 
+}
 
 
 

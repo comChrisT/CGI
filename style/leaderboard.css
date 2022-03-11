@@ -115,5 +115,7 @@ td{
     .leaderboard{
        margin:0;
     }
-
+    .TopNav_list{
+        font-size: 10px;
+    }
 }

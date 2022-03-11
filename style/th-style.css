@@ -128,13 +128,25 @@ body{
     border: 1px solid saddlebrown;
     margin-bottom: 9px;
 }
-.Chall_list li a{
+.active{
     text-decoration: none;
-    color: red;
     display: block;
     font-size: 150%;
     font-weight: bold;
     padding: 5px 0;
+
+    color: red;
+}
+.inactive{
+    text-decoration: none;
+    display: block;
+    font-size: 150%;
+    font-weight: bold;
+    padding: 5px 0;
+
+    cursor: not-allowed;
+    opacity: 0.5;
+    color: black;
 }
 .Chall_list li a:hover{
     background-color: lightblue;
@@ -183,8 +195,9 @@ body{
     display: none;
 }
 #TEXT input{
-    font-size: 100%;
+    font-size: 140%;
 }
+
 /* BotNav in question page */
 .BotNav{
     background-color: seagreen;

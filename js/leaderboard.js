@@ -1,6 +1,7 @@
 // let sessionID = getCookie(COOKIE_SESSION_ID);
 //console.log(output);
 
+
 function getLeaderBoard(url) {
 // create and invoke the http request
     fetch(url, { method: "GET"})
