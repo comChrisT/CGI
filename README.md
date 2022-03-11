@@ -1,5 +1,5 @@
 ##' Group2
-##'A project to demonstrate collaboration features of Git and GitHub to CO1111 students
+##'A project to create a treasure hunt web application
 
 ##'The team members are:
 -Christos Topaka<br>
