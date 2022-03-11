@@ -107,3 +107,14 @@ td{
         background-color: rgba(133,133,133,0.45);
     }
 }
+@media only screen and (max-width: 400px) {
+    th,td{
+         padding: 2px;
+         font-size: small;
+    }
+    .leaderboard{
+        margin-left:100px;
+        margin-right:0;
+    }
+
+}
