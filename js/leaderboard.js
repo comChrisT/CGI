@@ -1,21 +1,3 @@
-const TH_API_URL = "https://codecyprus.org/th/api"; // the API base url
-
-//get session id from cookies
-function getCookie(cookieName ){
-    let name = cookieName + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
 // let sessionID = getCookie(COOKIE_SESSION_ID);
 //console.log(output);
 
@@ -27,7 +9,7 @@ function getLeaderBoard(url) {
 }
 
 
-let url = TH_API_URL + "/leaderboard?sorted&limit=100&session="+sessionID; // form url
+let url = TH_LEADERBOARD_URL + "?sorted&limit=100&session="+sessionID; // form url
 getLeaderBoard(url);
 
 /**
