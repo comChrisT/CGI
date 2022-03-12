@@ -1,7 +1,3 @@
-// let sessionID = getCookie(COOKIE_SESSION_ID);
-//console.log(output);
-
-
 function getLeaderBoard(url) {
 // create and invoke the http request
     fetch(url, { method: "GET"})
@@ -27,40 +23,53 @@ function handleLeaderboard(leaderboard) {
 
 
     let i=1;
+    let j=1;
+    var playerName=getCookie(COOKIE_PLAYER_NAME);
 
     for(const entry of leaderboardArray) {
         let date = new Date(entry['completionTime']);
         let formattedDate = date.toLocaleDateString("en-UK", options);
-        if(i===1){
+        if(playerName===entry['player']){
+            j=i;
+        }
+        if(i===1 && playerName!==entry['player']){
             html += "<tr id='gold'>" +
                 "<td>" +"<span>"+i+"."+"</span>"+ entry['player'] + "</td>" +
                 "<td>" + entry['score'] + "</td>" +
                 "<td>" + formattedDate + "</td>" +
                 "</tr>";
         }
-        else if(i===2){
+        else if(i===2&& playerName!==entry['player']){
             html += "<tr id='silver'>" +
                 "<td>" +"<span>"+i+"."+"</span>"+ entry['player'] + "</td>" +
                 "<td>" + entry['score'] + "</td>" +
                 "<td>" + formattedDate + "</td>" +
                 "</tr>";
         }
-        else if (i===3){
+        else if (i===3&& playerName!==entry['player']){
             html += "<tr id='bronze'>" +
                 "<td>" + "<span>" + i + "." + "</span>" + entry['player'] + "</td>" +
                 "<td>" + entry['score'] + "</td>" +
                 "<td>" + formattedDate + "</td>" +
                 "</tr>";
         }
-        else {
+        else if(playerName!==entry['player']){
             html += "<tr>" +
                 "<td>" + "<span>" + i + "." + "</span>" + entry['player'] + "</td>" +
                 "<td>" + entry['score'] + "</td>" +
                 "<td>" + formattedDate + "</td>" +
                 "</tr>";
         }
+        else
+            html += "<tr  id='currentPlayer'>" +
+                "<td>" + "<span>" + i + "." + "</span>" + entry['player'] + "</td>" +
+                "<td>" + entry['score'] + "</td>" +
+                "<td>" + formattedDate + "</td>" +
+                "</tr>";
         i++;
     }
+    document.getElementById("player-rank").innerHTML+=
+        "<h2>"+"Your position:  "+j+"</h2>";
     let leaderboardElement = document.getElementById('output-table'); // table
     leaderboardElement.innerHTML += html; // append generated HTML to existing
 }
