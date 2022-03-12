@@ -1,4 +1,4 @@
-function getLeaderBoard(url) {
+async function getLeaderBoard(url) {
 // create and invoke the http request
     fetch(url, { method: "GET"})
         .then(response => response.json())
@@ -6,16 +6,13 @@ function getLeaderBoard(url) {
 }
 
 
-let url = TH_LEADERBOARD_URL + "?sorted&session="+sessionID; // form url
+let url = TH_LEADERBOARD_URL + "?sorted&limit=100&session="+sessionID; // form url
 getLeaderBoard(url);
 
 /**
  * A function to handle the JSON-formatted reply of '/leaderboard' call
- *
- * @param leaderboard for an example of how leaderboard is encoded in JSON,
- * see sample output of '/leaderboard’ at https://codecyprus.org/th#leaderboard
  */
-function handleLeaderboard(leaderboard) {
+async function handleLeaderboard(leaderboard) {
     let options = { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', second: '2-digit' };
 
     let html = ""; // used to include HTML code for the table rows
@@ -68,8 +65,18 @@ function handleLeaderboard(leaderboard) {
                 "</tr>";
         i++;
     }
+
+    async function LeaderboardScore() {
+
+        const reply = await fetch(TH_SCORE_URL + "?session=" + sessionID);
+        const score_obj = await reply.json();
+        if(score_obj.status=="OK"){
+            document.getElementById("player-rank").innerHTML+="<h3>"+"With "+score_obj.score+"pts"+"</h3>";
+        }
+    }
     document.getElementById("player-rank").innerHTML+=
         "<h2>"+"Your position:  "+j+"</h2>";
+    LeaderboardScore();
     let leaderboardElement = document.getElementById('output-table'); // table
     leaderboardElement.innerHTML += html; // append generated HTML to existing
 }
