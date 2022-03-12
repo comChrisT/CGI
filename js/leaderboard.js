@@ -6,7 +6,7 @@ async function getLeaderBoard(url) {
 }
 
 
-let url = TH_LEADERBOARD_URL + "?sorted&limit=100&session="+sessionID; // form url
+let url = TH_LEADERBOARD_URL + "?sorted&session="+sessionID; // form url
 getLeaderBoard(url);
 
 /**
