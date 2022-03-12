@@ -1,4 +1,7 @@
-
+#player-rank{
+    text-align: center;
+    font-size: xx-large;
+}
 h1{
     text-align: center;
     margin-top: 40px;
@@ -41,6 +44,16 @@ td{
     margin-right:5px;
     margin-bottom:5px;
 }
+#currentPlayer{
+    background-color: rgba(12,8,206,0.54);
+    box-shadow: 5px 5px 10px 2px snow inset;
+}
+#currentPlayer td{
+    color: whitesmoke;
+}
+#currentPlayer span{
+    color: whitesmoke;
+}
 
 #gold{
     background-color: #FFD700;
@@ -75,6 +88,9 @@ td{
 }
 
 @media only screen and (max-width: 800px) {
+    #player-rank{
+        font-size: large;
+    }
     h1{
         font-size: x-large;
     }
