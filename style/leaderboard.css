@@ -29,13 +29,13 @@ th, td {
 th{
     padding:40px;
     background-color: rgba(146,141,90,0.69);
-    font-size: x-large;
+    font-size: larger;
     font-weight: bolder;
 }
 td{
     padding: 50px;
     color: #434344;
-    font-size: larger;
+    font-size: large;
     font-weight: bolder;
     background-color: rgba(133,133,133,0.45);
 }
@@ -88,7 +88,7 @@ td{
     color: whitesmoke;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 900px) {
     #player-rank{
         font-size: large;
     }
@@ -98,36 +98,36 @@ td{
     th{
         padding:20px;
         background-color: rgba(146,141,90,0.69);
-        font-size: large;
+        font-size: medium;
         font-weight: bolder;
     }
     td{
         padding: 25px;
         color: #434344;
-        font-size: large;
+        font-size: medium;
         font-weight: bolder;
         background-color: rgba(133,133,133,0.45);
     }
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
     th{
         padding:4px 6px 4px 4px;
         background-color: rgba(146,141,90,0.69);
-        font-size: medium;
-        font-weight: bolder;
+        font-size: small;
+        font-weight: bold;
     }
     td{
         padding: 4px 6px 4px 4px;
         color: #434344;
-        font-size: medium;
-        font-weight: bolder;
+        font-size: small;
+        font-weight: bold;
         background-color: rgba(133,133,133,0.45);
     }
 }
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
     th,td{
          padding: 2px;
-         font-size: small;
+         font-size: xx-small;
     }
     .leaderboard{
        margin:0;
