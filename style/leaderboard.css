@@ -10,7 +10,7 @@ h3,h2{
     color: green;
 }
 table {
-    border: 10px groove green;
+    border: 5px groove green;
     box-shadow: 10px 10px 25px 5px snow inset;
     border-radius: 10px;
     width:60%;
