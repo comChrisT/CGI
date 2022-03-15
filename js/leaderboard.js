@@ -18,54 +18,50 @@ async function handleLeaderboard(leaderboard) {
     let html = ""; // used to include HTML code for the table rows
     let leaderboardArray = leaderboard['leaderboard'];
 
-
-    let i=1;
-    let j=1;
+    //player rank
+    let position=1;
+    //CURRENT player rank
+    let current_position=1;
     var playerName=getCookie(COOKIE_PLAYER_NAME);
 
     for(const entry of leaderboardArray) {
-        let date = new Date(entry['completionTime']);
-        let formattedDate = date.toLocaleDateString("en-UK", options);
+
         if(playerName===entry['player']){
-            j=i;
+            current_position=position;
         }
-        if(i===1 && playerName!==entry['player']){
+        if(position===1 && playerName!==entry['player']){
             html += "<tr id='gold'>" +
-                "<td>" +"<span>"+i+"."+"</span>"+ entry['player'] + "</td>" +
+                "<td>" +"<span>"+position+"."+"</span>"+ entry['player'] + "</td>" +
                 "<td>" + entry['score'] + "</td>" +
-                "<td>" + formattedDate + "</td>" +
                 "</tr>";
         }
-        else if(i===2&& playerName!==entry['player']){
+        else if(position===2&& playerName!==entry['player']){
             html += "<tr id='silver'>" +
-                "<td>" +"<span>"+i+"."+"</span>"+ entry['player'] + "</td>" +
+                "<td>" +"<span>"+position+"."+"</span>"+ entry['player'] + "</td>" +
                 "<td>" + entry['score'] + "</td>" +
-                "<td>" + formattedDate + "</td>" +
                 "</tr>";
         }
-        else if (i===3&& playerName!==entry['player']){
+        else if (position===3&& playerName!==entry['player']){
             html += "<tr id='bronze'>" +
-                "<td>" + "<span>" + i + "." + "</span>" + entry['player'] + "</td>" +
+                "<td>" + "<span>" + position + "." + "</span>" + entry['player'] + "</td>" +
                 "<td>" + entry['score'] + "</td>" +
-                "<td>" + formattedDate + "</td>" +
                 "</tr>";
         }
         else if(playerName!==entry['player']){
             html += "<tr>" +
-                "<td>" + "<span>" + i + "." + "</span>" + entry['player'] + "</td>" +
+                "<td>" + "<span>" + position + "." + "</span>" + entry['player'] + "</td>" +
                 "<td>" + entry['score'] + "</td>" +
-                "<td>" + formattedDate + "</td>" +
                 "</tr>";
         }
         else
             html += "<tr  id='currentPlayer'>" +
-                "<td>" + "<span>" + i + "." + "</span>" + entry['player'] + "</td>" +
+                "<td>" + "<span>" + position + "." + "</span>" + entry['player'] + "</td>" +
                 "<td>" + entry['score'] + "</td>" +
-                "<td>" + formattedDate + "</td>" +
                 "</tr>";
-        i++;
+        position++;
     }
 
+    //function to get score with /th/api/score API call
     async function LeaderboardScore() {
 
         const reply = await fetch(TH_SCORE_URL + "?session=" + sessionID);
@@ -75,7 +71,8 @@ async function handleLeaderboard(leaderboard) {
         }
     }
     document.getElementById("player-rank").innerHTML+=
-        "<h2>"+"Your position:  "+j+"</h2>";
+        "<h2>"+"Your position:  "+current_position+"</h2>";
+
     LeaderboardScore();
     let leaderboardElement = document.getElementById('output-table'); // table
     leaderboardElement.innerHTML += html; // append generated HTML to existing
