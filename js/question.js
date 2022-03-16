@@ -52,6 +52,43 @@ async function Score(){
 
 }
 
+// Geolocation
+function getLocation(){
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(updateLocation);
+    }
+    else {
+        alert("Geolocation is not supported by your browser.");
+    }
+}
+async function updateLocation(currPos){
+
+    const reply = await fetch(TH_LOCATION_URL+"?session="+sessionID+"&latitude="+currPos.coords.latitude+"&longitude="+currPos.coords.longitude);
+    const location_obj = await reply.json();
+
+    console.log("Location API:");console.log(location_obj);//***********************|    Test    |***********************
+    if(location_obj.status=="ERROR"){
+        alert(location_obj.status+":\n"+"Missing or Invalid parameters: session, latitude, longitude");
+    }
+
+}
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+             alert("User denied the request for Geolocation.");
+            break;
+        case error.POSITION_UNAVAILABLE:
+            alert("Location information is unavailable.");
+            break;
+        case error.TIMEOUT:
+            alert("The request to get user location timed out.");
+            break;
+        case error.UNKNOWN_ERROR:
+            alert("An unknown error occurred.");
+            break;
+    }
+}
+
 // Questions API
 async function get_Question() {
 
@@ -74,7 +111,7 @@ async function get_Question() {
             alert("That was the last question.");
             window.location.replace("leaderboard.html?sessionID="+sessionID);
         }
-
+        // skippable question
         if(question_obj.canBeSkipped==true){
             document.getElementById("skipBtn").style.display="inline";
         }
@@ -83,6 +120,11 @@ async function get_Question() {
         }
         // display the question
         document.getElementById("Box_Msg").innerHTML=question_obj.questionText;
+        // question requre location
+        if(question_obj.requiresLocation==true){
+            getLocation();
+            document.getElementById("Box_Msg").innerHTML+="\n";
+        }
         // show the appropriate answer form based on the question type
         document.getElementById(question_obj.questionType).style.display="inline";
 
@@ -123,7 +165,7 @@ async function ans_Question(ans){
         }
         else{
             alert(answer_obj.status+":\n"+answer_obj.errorMessages);
-
+            window.location.replace("leaderboard.html?sessionID="+sessionID);
         }
 
     }
