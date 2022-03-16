@@ -5,12 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style/th-style.css">
+
+    <!-- Stylesheet for the QR popup -->
+    <link rel="stylesheet" type="text/css" href="style/qr-popup.css">
+
     <script src="js/cookies.js"></script>
     <title>Treasure Hunt</title>
     <script>document.title=getCookie(COOKIE_CHALLENGE_NAME)</script>
     <link rel="icon" href="images/th/th-small-flag.png">
     <script src="js/th.js"></script>
     <script src="js/question.js"></script>
+
+
+
 </head>
 
 <body onload="get_Question(); Score()">
@@ -66,6 +73,21 @@
         </form>
     </div>
 
+
+    <!-- QR popup screen -->
+    <button id="QR-button">Open Modal</button>
+
+    <div id="QR-popup" class="popup">
+        <!-- popup content -->
+        <div class="QR-content">
+            <div class="QR-close">x</div>
+            <div class="video"><video id="preview"></video></div>
+            <p id="qr-output"></p>
+        </div>
+    </div>
+
+
+
     <div class="BotNav">
         <div id="popup_Msg"></div>
         <div class="pInfo">
@@ -86,3 +108,8 @@
 
 </body>
 </html>
+
+<!-- QR popup js files -->
+<script src="js/popup.js"></script>
+<script src="QRscanner/instascan.min.js"></script>
+<script src="js/qrscanner.js"></script>
