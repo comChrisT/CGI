@@ -26,18 +26,12 @@
         <li><a id="displayA" href="app.html" style="display: none">PLAY AGAIN</a></li>
     </ul>
 </div>
-
 <div id="player-rank"></div>
-<h3>Leaderboard</h3>
-
-<div class="leaderboard">
-<table id="output-table">
-    <tr>
-        <th>Name</th>
-        <th>Score</th>
-    </tr>
-</table>
+<h2>Leaderboard</h2>
+<div class="leaderboard-container">
+<ul id="leaderboard"></ul>
 </div>
+
 <script>
     async function end(){
         const reply =  await fetch(TH_SCORE_URL +"?session="+sessionID);
