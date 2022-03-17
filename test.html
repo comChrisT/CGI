@@ -29,25 +29,68 @@
 
 
     <h3 style="background-color: yellow" >Testing <code>/list</code></h3>
-        <button id="buttonTestList" class="button" onclick="handleTestList(this)">Run Test</button>
-        <button id="buttonClearList" class="button" onclick="document.getElementById('options').innerHTML = 'The results of the test to show up here...';">Clear</button>
+        <input id="testList" type="number" placeholder="Optional parameter"/>
+        <button class="button" onclick="test_list(document.getElementById('testList').value)">Run Test</button>
+        <button class="button" onclick="console.clear()">Clear</button>
     <hr>
-        <div id="options">
-            The results of the test to show up here...
+        <div id="list">
+            *Results on console<br>*Optional parameter: NUMBER of treasure hunt should be listed
+<!--            <div>name:</div>-->
+<!--            <div>description:</div>-->
+<!--            <div>ownerEmail:</div>-->
+<!--            <div>secretCode:</div>-->
+<!--            <div>salt:</div>-->
+<!--            <div>visibility:</div>-->
+<!--            <div>startsOn:</div>-->
+<!--            <div>endsOn:</div>-->
+<!--            <div>maxDuration:</div>-->
+<!--            <div>shuffled:</div>-->
+<!--            <div>requiresAuthentication:</div>-->
+<!--            <div>emailResults:</div>-->
+<!--            <div>hasPrize:</div>-->
         </div>
     <hr>
+
     <h3 style="background-color: yellow" >Testing <code>/start</code></h3>
-        <button id="buttonTestStart" class="button" onclick="handleTestStart(this)">Run Test</button>
-        <button id="buttonClearStart" class="button" onclick="document.getElementById('message').innerHTML = 'Messages to show up here...'">Clear</button>
+        <input id="testStart" type="text" placeholder="Optional parameter"/>
+        <button class="button" onclick="test_start(document.getElementById('testStart').value)">Run Test</button>
+        <button class="button" onclick="console.clear()">Clear</button>
     <hr>
-        <div id="message">
-            Messages to show up here...
+        <div id="start">
+            *Results on console<br>
+            *Optional parameter (not case-sensitive): type of error
+            <ul>
+                <li>INACTIVE</li>
+                <li>EMPTY</li>
+                <li>PLAYER</li>
+                <li>APP</li>
+                <li>UNKNOWN</li>
+                <li>MISSING_PARAMETER</li>
+            </ul>
         </div>
+    <hr>
+
+    <h3 style="background-color: yellow" >Testing <code>/start</code></h3>
+    <input id="testQuestion" type="text" placeholder="Four optional parameter"/>
+    <button class="button" onclick="test_Question(document.getElementById('testQuestion').value)">Run Test</button>
+    <button class="button" onclick="console.clear()">Clear</button>
+    <hr>
+    <div id="question">
+        *Results on console<br>
+        *Optional parameter (not case-sensitive): type of error
+        <ul>
+            <li>COMPLETED</li>
+            <li>Type of question: BOOLEAN, MCQ, INTEGER, NUMERIC or TEXT.</li>
+            <li>CAN-BE-SKIPPED</li>
+            <li>REQUIRES-LOCATION</li>
+        </ul>
+    </div>
     <hr>
 
     <!--Load the API JavaScript-->
-    <script src="js/th.js"></script>
     <script src="js/th-test.js"></script>
+    <script>
 
+    </script>
 </body>
 </html>
