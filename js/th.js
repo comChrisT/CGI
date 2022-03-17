@@ -84,9 +84,5 @@ async function start(){
 
 }
 
-function thCompleted(){
-
-}
-
 
 
