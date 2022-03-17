@@ -1,4 +1,3 @@
-
 // session id
 var sessionID = getCookie(COOKIE_SESSION_ID);
 
@@ -8,6 +7,7 @@ function emptyAllAnsField(){
     document.getElementById("ansNUM").value="";
     document.getElementById("ansTXT").value="";
 }
+
 // hide all answer forms
 function hideAllForms(){
     document.getElementById("BOOLEAN").style.display="none";
@@ -16,6 +16,7 @@ function hideAllForms(){
     document.getElementById("MCQ").style.display="none";
     document.getElementById("TEXT").style.display="none";
 }
+
 // popup message
 function popUP(msg){
     let pop=document.getElementById("popup_Msg");
@@ -35,6 +36,7 @@ function popUP(msg){
     }
     setTimeout(hide,2000);
 }
+
 // Score API
 async function Score(){
 
@@ -50,54 +52,6 @@ async function Score(){
         alert(score_obj.status+":\n"+score_obj.errorMessages);
     }
 
-}
-// Get the geolocation of client
-function getLocation(){
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(updateLocation, showError);
-    }
-    else {
-        alert("Geolocation is not supported by your browser.");
-    }
-}
-// Send to the server
-async function updateLocation(currPos){
-
-    const reply = await fetch(TH_LOCATION_URL+"?session="+sessionID+"&latitude="+currPos.coords.latitude+"&longitude="+currPos.coords.longitude);
-    const location_obj = await reply.json();
-
-    console.log("Location API:");console.log(location_obj);//***********************|    Test    |***********************
-
-    if(location_obj.status=="ERROR"){
-        alert(location_obj.status+":\n"+"1. Session expired\n2. Missing or Invalid parameters: session, latitude, longitude");
-        window.location.replace("leaderboard.html?sessionID="+sessionID);
-    }
-
-}
-var keepUpdate=true; // used to auto update lodacation if client allowed
-// In case something goes wrong when allowed
-function showError(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-             alert("User denied the request for Geolocation.");
-             keepUpdate=false;
-            break;
-        case error.POSITION_UNAVAILABLE:
-            alert("Location information is unavailable.");
-            break;
-        case error.TIMEOUT:
-            alert("The request to get user location timed out.");
-            break;
-        case error.UNKNOWN_ERROR:
-            alert("An unknown error occurred.");
-            break;
-    }
-}
-function AutoUpdateLocation(){
-    if(keepUpdate==true){
-        // Keep getting the location every 2 min
-        setInterval(getLocation, 120000);
-    }
 }
 
 var reqGeo; // used to update location before answer
@@ -155,6 +109,55 @@ async function get_Question() {
     document.getElementById("loader").style.display="none";
     document.getElementById("mainContent").style.display="block";
 
+}
+
+// Get the geolocation of client
+function getLocation(){
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(updateLocation, showError);
+    }
+    else {
+        alert("Geolocation is not supported by your browser.");
+    }
+}
+// Send to the server
+async function updateLocation(currPos){
+
+    const reply = await fetch(TH_LOCATION_URL+"?session="+sessionID+"&latitude="+currPos.coords.latitude+"&longitude="+currPos.coords.longitude);
+    const location_obj = await reply.json();
+
+    console.log("Location API:");console.log(location_obj);//***********************|    Test    |***********************
+
+    if(location_obj.status=="ERROR"){
+        alert(location_obj.status+":\n"+"1. Session expired\n2. Missing or Invalid parameters: session, latitude, longitude");
+        window.location.replace("leaderboard.html?sessionID="+sessionID);
+    }
+
+}
+var keepUpdate=true; // used to auto update lodacation if client allowed
+// In case something goes wrong when allowed
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+             alert("User denied the request for Geolocation.");
+             keepUpdate=false;
+            break;
+        case error.POSITION_UNAVAILABLE:
+            alert("Location information is unavailable.");
+            break;
+        case error.TIMEOUT:
+            alert("The request to get user location timed out.");
+            break;
+        case error.UNKNOWN_ERROR:
+            alert("An unknown error occurred.");
+            break;
+    }
+}
+function AutoUpdateLocation(){
+    if(keepUpdate==true){
+        // Keep getting the location every 2 min
+        setInterval(getLocation, 120000);
+    }
 }
 
 async function ans_Question(ans){
