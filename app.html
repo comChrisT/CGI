@@ -21,7 +21,19 @@
         <li><a href="index.html">BACK</a></li>
     </ul>
 </div>
+<div id="popupResume">
+    <div class="popBG">
+        <div class="TitleContainer">
+            <h2 style="text-align: center" class="title">Notice</h2>
+        </div>
+        <div class="noticeDes">
+            <p style="text-align: center">Do you wish to continue ?</p>
+            <button class="buttonType" onclick="window.location.replace('questions.html?sessionID='+getCookie(COOKIE_SESSION_ID))">Yes</button>
+            <button class="buttonType" onClick="document.getElementById('popupResume').style.display='none'">No</button>
+        </div>
+    </div>
 
+</div>
 <!--Loader-->
 <div id="loader">Loading ...</div>
 
@@ -44,7 +56,11 @@
 </div>
 
 <script src="js/th.js"></script>
-
+<script>
+    if (cookieExists(COOKIE_SESSION_ID)){
+        document.getElementById("popupResume").style.display="block";
+    }
+</script>
 </body>
 
 </html>
