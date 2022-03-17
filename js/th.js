@@ -7,8 +7,6 @@ const TH_ANSWER_URL = TH_BASE_URL+"answer";
 const TH_SCORE_URL = TH_BASE_URL+"score";
 const TH_SKIP_URL = TH_BASE_URL+"skip";
 const TH_LEADERBOARD_URL = TH_BASE_URL+"leaderboard";
-const TH_TEST_URL = "https://codecyprus.org/th/test-api/";
-
 
 // API - list call
 async function get_List() {
