@@ -329,6 +329,14 @@ body{
 /********************************************************************************
 |					    	          MEDIA                                     |
 *********************************************************************************/
+@media only screen and (max-width: 768px){
+    .popBG{
+        width: 80%;
+    }
+    .Chall_list{
+        min-width: 80%;
+    }
+}
 /* If the screen size is 425px or less */
 @media only screen and (max-width: 425px){
 
@@ -341,14 +349,10 @@ body{
         font-size: 100%;
     }
     .popBG{
-        width: 90%;
         margin: 90px auto 0 auto;
     }
     .noticeDes{
         width: 90%;
-    }
-    .Chall_list{
-        min-width: 80%;
     }
     .pInfo{
         padding: 6px 2px 6px 0;
