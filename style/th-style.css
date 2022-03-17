@@ -158,9 +158,20 @@ body{
 }
 #nameOfPlayer{
     font-size: 140%;
+    background-color: #fefefe00;
+    border: none;
+    border-bottom: 1px solid darkred;
 }
 .registerBtn{
     font-size: 140%;
+    cursor: pointer;
+    margin: 2px;
+    padding: 2px 6px;
+    border: 1px solid white;
+    background-color: #386575;
+    color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    opacity: 0.8;
 }
 
 /*---| question page style |---*/
@@ -197,7 +208,15 @@ body{
 #TEXT input{
     font-size: 140%;
 }
-
+/* QR button */
+#QR-button{
+    border: none;
+    margin: 0;
+}
+.reqGeo{
+    margin: 8px 0 0 0;
+    color: red;
+}
 /* BotNav in question page */
 .BotNav{
     background-color: seagreen;
@@ -246,19 +265,23 @@ body{
     bottom:50px;
     left:10px;
 }
-/* mcq button */
-.cBtn{
+/* buttons style */
+.buttonType{
     cursor: pointer;
     margin: 4px;
     padding: 2px 6px;
     border: 1px solid white;
-    /*border-style: outset;*/
     background-color: #386575;
     color: white;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     opacity: 0.8;
 }
-
+/* input box style */
+.inputType{
+    background-color: #fefefe00;
+    border: none;
+    border-bottom: 1px solid darkred;
+}
 
 /********************************************************************************
 |					    	          MEDIA                                     |
@@ -267,11 +290,12 @@ body{
 @media only screen and (max-width: 425px){
 
     .imgPirate{
-        width: 50%;
+        width: 40%;
         height: auto;
     }
     #Box_Msg{
         max-width: 80%;
+        font-size: 100%;
     }
     .Chall_list{
         min-width: 80%;

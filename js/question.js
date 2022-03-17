@@ -51,31 +51,36 @@ async function Score(){
     }
 
 }
-
-// Geolocation
+// Get the geolocation of client
 function getLocation(){
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(updateLocation);
+        navigator.geolocation.getCurrentPosition(updateLocation, showError);
     }
     else {
         alert("Geolocation is not supported by your browser.");
     }
 }
+// Send to the server
 async function updateLocation(currPos){
 
     const reply = await fetch(TH_LOCATION_URL+"?session="+sessionID+"&latitude="+currPos.coords.latitude+"&longitude="+currPos.coords.longitude);
     const location_obj = await reply.json();
 
     console.log("Location API:");console.log(location_obj);//***********************|    Test    |***********************
+
     if(location_obj.status=="ERROR"){
-        alert(location_obj.status+":\n"+"Missing or Invalid parameters: session, latitude, longitude");
+        alert(location_obj.status+":\n"+"1. Session expired\n2. Missing or Invalid parameters: session, latitude, longitude");
+        window.location.replace("leaderboard.html?sessionID="+sessionID);
     }
 
 }
+var keepUpdate=true; // used to auto update lodacation if client allowed
+// In case something goes wrong when allowed
 function showError(error) {
     switch(error.code) {
         case error.PERMISSION_DENIED:
              alert("User denied the request for Geolocation.");
+             keepUpdate=false;
             break;
         case error.POSITION_UNAVAILABLE:
             alert("Location information is unavailable.");
@@ -88,7 +93,14 @@ function showError(error) {
             break;
     }
 }
+function AutoUpdateLocation(){
+    if(keepUpdate==true){
+        // Keep getting the location every 2 min
+        setInterval(getLocation, 120000);
+    }
+}
 
+var reqGeo; // used to update location before answer
 // Questions API
 async function get_Question() {
 
@@ -111,6 +123,8 @@ async function get_Question() {
             alert("That was the last question.");
             window.location.replace("leaderboard.html?sessionID="+sessionID);
         }
+        // display the question
+        document.getElementById("Box_Msg").innerHTML=question_obj.questionText;
         // skippable question
         if(question_obj.canBeSkipped==true){
             document.getElementById("skipBtn").style.display="inline";
@@ -118,12 +132,13 @@ async function get_Question() {
         else {
             document.getElementById("skipBtn").style.display="none";
         }
-        // display the question
-        document.getElementById("Box_Msg").innerHTML=question_obj.questionText;
         // question requre location
         if(question_obj.requiresLocation==true){
-            getLocation();
-            document.getElementById("Box_Msg").innerHTML+="\n";
+            reqGeo=true;
+            document.getElementById("Box_Msg").innerHTML+="<p class='reqGeo'>Please make sure to <u>ALLOW</u> geolocation for this specific question!</p>";
+        }
+        else{
+            reqGeo=false;
         }
         // show the appropriate answer form based on the question type
         document.getElementById(question_obj.questionType).style.display="inline";
@@ -142,15 +157,16 @@ async function get_Question() {
 
 }
 
-
 async function ans_Question(ans){
 
     if(navigator.onLine==false){
         popUP("Connection error, Please make sure you have an internet connection");
     }
     else{
-        //update location *not implemented yet
-
+        //update location
+        if(reqGeo==true){
+            getLocation();
+        }
 
         const reply = await fetch(TH_ANSWER_URL +"?session="+sessionID+"&answer="+ans);
         const answer_obj = await reply.json();
@@ -207,5 +223,6 @@ async function skipQ(){
     }
     else{
         alert(skip_obj.status+":\n"+skip_obj.errorMessages);
+        window.location.replace("leaderboard.html?sessionID="+sessionID);
     }
 }

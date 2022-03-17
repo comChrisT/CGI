@@ -20,13 +20,15 @@
 
 </head>
 
-<body onload="get_Question(); Score()">
+<body onload="get_Question(); Score(); getLocation(); AutoUpdateLocation()">
 <!--Top navigation bar-->
 <div class="TopNav">
     <!--Logo on left-->
     <img class="TopNav_logo"  src="images/th/th-logo.png" alt="logo">
     <!--Menu on right-->
     <ul class="TopNav_list">
+        <!-- QR popup screen -->
+        <li><button id="QR-button" class="oBtn">QR scanner</button></li>
     </ul>
 </div>
 
@@ -46,36 +48,32 @@
     <div class="interaction">
         <!--boolean type question-->
         <form  name="interactForm" id="BOOLEAN">
-            <input class="cBtn" type="button" name="true" value="True" onClick="ans_Question('true')"/>
-            <input class="cBtn" type="button" name="false" value="False" onClick="ans_Question('false')"/>
+            <input class="buttonType" type="button" name="true" value="True" onClick="ans_Question('true')"/>
+            <input class="buttonType" type="button" name="false" value="False" onClick="ans_Question('false')"/>
         </form>
         <!--integer type question-->
         <form name="interactForm" id="INTEGER">
-            <input id="ansINT" class="formINT" type="number" name="answerField" placeholder="Answer here..." size="30" required/>
-            <input class="cBtn" type="button" name="submitBtn" value="Submit" onClick="handleInput(document.getElementById('ansINT').value)"/>
+            <input id="ansINT" class="inputType" type="number" name="answerField" placeholder="Answer here..." size="30" required/>
+            <input class="buttonType" type="button" name="submitBtn" value="Submit" onClick="handleInput(document.getElementById('ansINT').value)"/>
         </form>
         <!--numeric type question-->
         <form name="interactForm" id="NUMERIC">
-            <input id="ansNUM" class="formNUM" type="number" name="answerField" placeholder="Answer here..." size="30" required/>
-            <input class="cBtn" type="button" name="submitBtn" value="Submit" onClick="handleInput(document.getElementById('ansNUM').value)"/>
+            <input id="ansNUM" class="inputType" type="number" name="answerField" placeholder="Answer here..." size="30" required/>
+            <input class="buttonType" type="button" name="submitBtn" value="Submit" onClick="handleInput(document.getElementById('ansNUM').value)"/>
         </form>
         <!--multiple choice type question-->
         <form name="interactForm" id="MCQ">
-            <input id="answerABtn" class="cBtn" type="button" name="cABtn" value="A" onclick="ans_Question('A')"/>
-            <input id="answerBBtn" class="cBtn" type="button" name="cBBtn" value="B" onclick="ans_Question('B')"/>
-            <input id="answerCBtn" class="cBtn" type="button" name="cCBtn" value="C" onclick="ans_Question('B')"/>
-            <input id="answerDBtn" class="cBtn" type="button" name="cDBtn" value="D" onclick="ans_Question('C')"/>
+            <input id="answerABtn" class="buttonType" type="button" name="cABtn" value="A" onclick="ans_Question('A')"/>
+            <input id="answerBBtn" class="buttonType" type="button" name="cBBtn" value="B" onclick="ans_Question('B')"/>
+            <input id="answerCBtn" class="buttonType" type="button" name="cCBtn" value="C" onclick="ans_Question('B')"/>
+            <input id="answerDBtn" class="buttonType" type="button" name="cDBtn" value="D" onclick="ans_Question('C')"/>
         </form>
         <!--text type question-->
         <form name="interactForm" id="TEXT">
-            <input id="ansTXT" class="formTXT" type="text" name="answerField" placeholder="Answer here..." size="20" required/>
-            <input class="cBtn" type="button" name="submitBtn" value="Submit" onClick="handleInput(document.getElementById('ansTXT').value)"/>
+            <input id="ansTXT" class="inputType" type="text" name="answerField" placeholder="Answer here..." size="20" required/>
+            <input class="buttonType" type="button" name="submitBtn" value="Submit" onClick="handleInput(document.getElementById('ansTXT').value)"/>
         </form>
     </div>
-
-
-    <!-- QR popup screen -->
-    <button id="QR-button">QR scanner</button>
 
     <div id="QR-popup" class="popup">
         <!-- popup content -->
@@ -85,8 +83,6 @@
             <p id="qr-output"></p>
         </div>
     </div>
-
-
 
     <div class="BotNav">
         <div id="popup_Msg"></div>
