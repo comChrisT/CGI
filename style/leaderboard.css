@@ -1,7 +1,3 @@
-#player-rank{
-    text-align: center;
-    font-size: xx-large;
-}
 h3,h2{
     text-align: center;
     margin-top: 40px;
@@ -9,130 +5,86 @@ h3,h2{
     font-size: xxx-large;
     color: green;
 }
-table {
-    border: 5px groove green;
+#leaderboard {
+    padding: 0;
+    width:80%;
+    margin:auto;
+    max-width:500px;
+    text-align:center;
     box-shadow: 10px 10px 25px 5px snow inset;
-    border-radius: 10px;
-    width:60%;
-    margin-bottom: 5px;
 }
-table span{
-    margin-right: 10px;
-    margin-left: 0;
-    color: black;
-}
-th, td {
-    border-bottom: 1px solid gray;
-    text-align: center;
-
-}
-th{
-    padding:40px;
+#leaderboard li {
+    border-bottom: 1px solid whitesmoke;
     background-color: rgba(146,141,90,0.69);
-    font-size: larger;
-    font-weight: bolder;
-}
-td{
-    padding: 50px;
-    color: #434344;
-    font-size: large;
-    font-weight: bolder;
-    background-color: rgba(133,133,133,0.45);
-}
-.leaderboard{
-    display: flex;
-    justify-content: center;
-    margin-right:5px;
-    margin-bottom:5px;
-}
-#currentPlayer{
-    background-color: rgba(12,8,206,0.54);
-    box-shadow: 5px 5px 10px 2px snow inset;
-}
-#currentPlayer td{
-    color: whitesmoke;
-}
-#currentPlayer span{
-    color: whitesmoke;
+    list-style-type: none;
 }
 
-#gold{
-    background-color: #FFD700;
-    box-shadow: 5px 5px 10px 2px snow inset;
-}
-#gold td{
-    color: whitesmoke;
-}
-#gold span{
-    color: whitesmoke;
-}
-#silver{
-    background-color: #7d7d7d;
-    box-shadow: 5px 5px 10px 2px snow inset;
-}
-#silver td{
-    color: whitesmoke;
-}
-#silver span{
-    color: whitesmoke;
+#leaderboard li:first-child {
+    border-top: 1px solid whitesmoke;
 }
 
-#bronze{
-    background-color: #CD7F32;
-    box-shadow: 5px 5px 10px 2px snow inset;
-}
-#bronze td{
+.score {
     color:whitesmoke;
-}
-#bronze span{
-    color: whitesmoke;
+    background-color: rgba(19,84,13,0.79);
+    float:right;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right:40px;
+    position: relative;
+    bottom: 60px;
 }
 
-@media only screen and (max-width: 900px) {
-    #player-rank{
-        font-size: large;
-    }
+.player-name {
+    font-weight:bold;
+    font-size: large;
+    padding: 40px;
+    position: relative;
+    top: 10px;
+    color: white;
+    max-width: 450px;
+    word-break: break-word;
+    font-family: serif;
+}
+#leaderboard #gold{
+    box-shadow: 2px 2px 40px 2px rgba(255,250,0,0.66) inset;
+}
+#leaderboard #silver{
+    box-shadow: 2px 2px 40px 2px rgba(125,125,125,0.66) inset;
+}
+#leaderboard #bronze{
+    box-shadow: 2px 2px 40px 2px #CD7F32 inset;
+}
+.player-rank{
+    margin-right: 10px;
+    font-size: x-large;
+    font-weight: bold;
+}
+#gold .score{
+    background-color: rgba(255,250,0,0.66);
+    font-weight: bolder;
+}
+#silver .score{
+    background-color: rgba(125,125,125,0.66);
+    font-weight: bolder;
+}
+#bronze .score{
+    background-color: #CD7F32;
+    font-weight: bolder;
+}
+@media only screen and (max-width: 500px) {
     h3,h2{
         font-size: large;
     }
-    th{
-        padding:20px;
-        background-color: rgba(146,141,90,0.69);
+    .player-name{
         font-size: medium;
-        font-weight: bolder;
-    }
-    td{
-        padding: 25px;
-        color: #434344;
-        font-size: medium;
-        font-weight: bolder;
-        background-color: rgba(133,133,133,0.45);
-    }
-}
-@media only screen and (max-width: 700px) {
-    th{
-        padding:4px 6px 4px 4px;
-        background-color: rgba(146,141,90,0.69);
-        font-size: small;
-        font-weight: bold;
-    }
-    td{
-        padding: 4px 6px 4px 4px;
-        color: #434344;
-        font-size: small;
-        font-weight: bold;
-        background-color: rgba(133,133,133,0.45);
-    }
-}
-@media only screen and (max-width: 500px) {
-    th,td{
-         padding: 2px;
-         font-size: x-small;
-    }
-    .leaderboard{
-       margin:0;
     }
     .TopNav_list{
         font-size: 10px;
+    }
+    .score {
+        padding: 6px;
+        border-radius: 5px;
+        margin-right: 5px;
+        bottom: 60px;
     }
 }
