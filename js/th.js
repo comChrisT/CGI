@@ -81,8 +81,11 @@ async function start(){
         alert(start_obj.status+":\n"+start_obj.errorMessages);
         history.back();
     }
-
 }
 
-
+function playAgain(){
+    // expires the session id from browser
+    deleteCookie(COOKIE_SESSION_ID);
+    window.location.replace("app.html");
+}
 
