@@ -50,9 +50,8 @@
 <!--            <div>hasPrize:</div>-->
         </div>
     <hr>
-
-    <h3 style="background-color: yellow" >Testing <code>/start</code></h3>
-        <input id="testStart" type="text" placeholder="Optional parameter"/>
+<h3 style="background-color: yellow" >Testing <code>/start</code></h3>
+        <input id="testStart" type="text" placeholder="Optional parameter" value=""/>
         <button class="button" onclick="test_start(document.getElementById('testStart').value)">Run Test</button>
         <button class="button" onclick="console.clear(); document.getElementById('testStart').value=''">Clear</button>
     <hr>
@@ -71,9 +70,13 @@
     <hr>
 
     <h3 style="background-color: yellow" >Testing <code>/question</code></h3>
-    <input id="testQuestion" type="text" placeholder="Four optional parameter"/>
-    <button class="button" onclick="test_Question(document.getElementById('testQuestion').value)">Run Test</button>
-    <button class="button" onclick="console.clear(); document.getElementById('testQuestion').value=''">Clear</button>
+    <input id="testQuestion1" type="text" placeholder="1st optional parameter" value=""/>
+    <input id="testQuestion2" type="text" placeholder="2nd optional parameter" value=""/>
+    <input id="testQuestion3" type="text" placeholder="3rd optional parameter" value=""/>
+    <input id="testQuestion4" type="text" placeholder="4th optional parameter" value=""/>
+    <button class="button" onclick="test_Question(document.getElementById('testQuestion1').value, document.getElementById('testQuestion2').value,
+    document.getElementById('testQuestion3').value, document.getElementById('testQuestion4').value)">Run Test</button>
+    <button class="button" onclick="console.clear();">Clear</button>
     <hr>
     <div id="question">
         *Results on console<br>
