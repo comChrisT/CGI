@@ -5,7 +5,7 @@ const TH_START_URL = TH_TEST_URL+"start";
 const TH_QUESTION_URL = TH_TEST_URL+"question";
 const TH_ANSWER_URL = TH_TEST_URL+"answer";
 const TH_SCORE_URL = TH_TEST_URL+"score";
-const TH_SKIP_URL = TH_TEST_URL+"skip";
+const TH_LEADERBOARD_URL = TH_TEST_URL+"leaderboard";
 
 
 async function test_list(parameter) {
@@ -46,7 +46,7 @@ async function test_start(parameter) {
     const test = await reply.json();
 
     // On console
-     console.log("API request");
+    console.log("API request");
     console.log(TH_START_URL+"?player="+parameter);
     console.log("Start API:");
     console.log(test);
@@ -85,12 +85,25 @@ async function test_Answer(parameter1,parameter2,parameter3) {
 
 async function test_Score(parameter1,parameter2,parameter3,parameter4) {
 
-    const reply = await fetch(TH_SCORE_URL+"?score="+parameter1);
+    const reply = await fetch(TH_SCORE_URL+"?score="+parameter1+"&"+parameter2+"&"+parameter3+"&"+parameter4);
     const test = await reply.json();
 
     // On console
     console.log("API request");
-    console.log(TH_SCORE_URL+"?"+parameter1);
+    console.log(TH_SCORE_URL+"?score="+parameter1+"&"+parameter2+"&"+parameter3+"&"+parameter4);
+    console.log("Score API:");
+    console.log(test);
+
+}
+
+async function test_Leaderboard(parameter1,parameter2,parameter3) {
+
+    const reply = await fetch(TH_LEADERBOARD_URL+"?size="+parameter1+"&"+parameter2+"&"+parameter3);
+    const test = await reply.json();
+
+    // On console
+    console.log("API request");
+    console.log(TH_LEADERBOARD_URL+"?size="+parameter1+"&"+parameter2+"&"+parameter3);
     console.log("Score API:");
     console.log(test);
 

@@ -130,6 +130,22 @@
     </div>
     <hr>
 
+    <h3 style="background-color: yellow" >Testing <code>/leaderboard</code></h3>
+    <input id="testLeaderboard1" type="number" placeholder="1st optional parameter" value=""/>
+    <input id="testLeaderboard2" type="text" placeholder="2nd optional parameter" value=""/>
+    <input id="testLeaderboard3" type="text" placeholder="3rd optional parameter" value=""/>
+    <button class="button" onclick="test_Leaderboard(document.getElementById('testLeaderboard1').value, document.getElementById('testLeaderboard2').value,
+    document.getElementById('testLeaderboard3').value)">Run Test</button>
+    <button class="button" onclick="console.clear();">Clear</button>
+    <p>*Optional parameter 1 (Give an integer number)</p>
+    <p>*Optional parameter 2 (sorted)</p>
+    <p>*Optional parameter 3 (hasPrize)</p>
+    <hr>
+    <div id="leaderboard">
+
+    </div>
+    <hr>
+
     <!--Load the API JavaScript-->
     <script src="js/th-test.js"></script>
     <script>
