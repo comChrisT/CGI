@@ -399,6 +399,12 @@ blockquote em{
 
 @media only screen and (max-width: 450px) {
 
+    #info p{
+        width: 80%;
+    }
+    #team p{
+        width: 80%;
+    }
     #goTopButton{
         width:60px;
         height:60px;
