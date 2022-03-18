@@ -103,6 +103,46 @@
         </ul>
     </div>
     <hr>
+        
+    <h3 style="background-color: yellow" >Testing <code>/answer</code></h3>
+    <input id="testAnswer1" type="text" placeholder="1st optional parameter" value=""/>
+    <input id="testAnswer2" type="text" placeholder="2nd optional parameter" value=""/>
+    <input id="testAnswer3" type="text" placeholder="3rd optional parameter" value=""/>
+    <button class="button" onclick="test_Answer(document.getElementById('testAnswer1').value, document.getElementById('testAnswer2').value,
+    document.getElementById('testAnswer3').value)">Run Test</button>
+    <button class="button" onclick="console.clear();">Clear</button>
+    <hr>
+    <div id="answer">
+        *Results on console<br>
+        *Optional parameter (not case-sensitive): type of error
+        <ul>
+            <li>CORRECT</li>
+            <li>COMPLETED</li>
+            <li>EXPIRED</li>
+        </ul>
+    </div>
+    <hr>
+
+    <h3 style="background-color: yellow" >Testing <code>/score</code></h3>
+    <input id="testScore1" type="number" placeholder="1st optional parameter" value=""/>
+    <input id="testScore2" type="text" placeholder="2nd optional parameter" value=""/>
+    <input id="testScore3" type="text" placeholder="3rd optional parameter" value=""/>
+    <input id="testScore4" type="text" placeholder="4th optional parameter" value=""/>
+    <button class="button" onclick="test_Score(document.getElementById('testScore1').value, document.getElementById('testScore2').value,
+    document.getElementById('testScore3').value, document.getElementById('testScore4').value)">Run Test</button>
+    <button class="button" onclick="console.clear();">Clear</button>
+    <hr>
+    <div id="score">
+        *Results on console<br>
+        *Optional parameter (not case-sensitive): type of error
+        <ul>
+            <li>Score: give a number</li>
+            <li>COMPLETED</li>
+            <li>FINISHED</li>
+            <li>ERROR</li>
+        </ul>
+    </div>
+    <hr>
 
     <!--Load the API JavaScript-->
     <script src="js/th-test.js"></script>
