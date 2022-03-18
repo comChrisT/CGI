@@ -8,6 +8,8 @@ body{
 
 }
 
+
+
 body p{
     color: white;
     font-size: xxx-large;
@@ -16,7 +18,7 @@ body p{
     padding: 10px;
     text-align: center;
     font-family: Arial, serif;
-    background-color: black;
+    background: rgba(0, 0, 0, 0.6);
 }
 
 body button{
@@ -25,7 +27,7 @@ body button{
     background-color: #8fcc88;
     border-radius: 10px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 25px;
     margin-top: 10px;
     margin-bottom: 20px;
     text-align: center;
@@ -41,5 +43,14 @@ body h1{
     display: block;
     height: auto;
     text-align: center;
+}
+
+#firstP {
+    text-decoration: underline;
+
+}
+
+.subText{
+    font-size:20px;
 }
 
