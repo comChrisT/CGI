@@ -31,7 +31,7 @@
     <h3 style="background-color: yellow" >Testing <code>/list</code></h3>
         <input id="testList" type="number" placeholder="Optional parameter"/>
         <button class="button" onclick="test_list(document.getElementById('testList').value)">Run Test</button>
-        <button class="button" onclick="console.clear()">Clear</button>
+        <button class="button" onclick="console.clear(); document.getElementById('testList').value=''">Clear</button>
     <hr>
         <div id="list">
             *Results on console<br>*Optional parameter: NUMBER of treasure hunt should be listed
@@ -54,7 +54,7 @@
     <h3 style="background-color: yellow" >Testing <code>/start</code></h3>
         <input id="testStart" type="text" placeholder="Optional parameter"/>
         <button class="button" onclick="test_start(document.getElementById('testStart').value)">Run Test</button>
-        <button class="button" onclick="console.clear()">Clear</button>
+        <button class="button" onclick="console.clear(); document.getElementById('testStart').value=''">Clear</button>
     <hr>
         <div id="start">
             *Results on console<br>
@@ -73,7 +73,7 @@
     <h3 style="background-color: yellow" >Testing <code>/question</code></h3>
     <input id="testQuestion" type="text" placeholder="Four optional parameter"/>
     <button class="button" onclick="test_Question(document.getElementById('testQuestion').value)">Run Test</button>
-    <button class="button" onclick="console.clear()">Clear</button>
+    <button class="button" onclick="console.clear(); document.getElementById('testQuestion').value=''">Clear</button>
     <hr>
     <div id="question">
         *Results on console<br>
