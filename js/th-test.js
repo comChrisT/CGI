@@ -33,17 +33,21 @@ async function test_start(parameter) {
     const test = await reply.json();
 
     // On console
+     console.log("API request");
+    console.log(TH_START_URL+"?player="+parameter);
     console.log("Start API:");
     console.log(test);
 
 }
 
-async function test_Question(para1,para2,para3,para4) {
+async function test_Question(parameter1,parameter2,parameter3,parameter4) {
 
-    const reply = await fetch(TH_START_URL+"?"+para1+"&question-type="+para2+"&"+para3+"&"+para4);
+    const reply = await fetch(TH_QUESTION_URL+"?"+parameter1+"&question-type="+parameter2+"&"+parameter3+"&"+parameter4);
     const test = await reply.json();
 
     // On console
+    console.log("API request");
+    console.log(TH_QUESTION_URL+"?"+parameter1+"&question-type="+parameter2+"&"+parameter3+"&"+parameter4);
     console.log("Question API:");
     console.log(test);
 
