@@ -32,6 +32,7 @@ body button{
     margin-bottom: 20px;
     text-align: center;
 
+
 }
 
 body button:hover{
@@ -51,6 +52,6 @@ body h1{
 }
 
 .subText{
-    font-size:20px;
+    font-size:25px;
 }
 
