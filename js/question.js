@@ -89,7 +89,7 @@ async function get_Question() {
         // question requre location
         if(question_obj.requiresLocation==true){
             reqGeo=true;
-            document.getElementById("Box_Msg").innerHTML+="<p class='reqGeo'>Please make sure to <u>ALLOW</u> geolocation for this specific question!</p>";
+            document.getElementById("Box_Msg").innerHTML+="<p class='reqGeo'>To answer this question, you must be roughly at some specific location!</p>";
         }
         else{
             reqGeo=false;
@@ -168,6 +168,7 @@ async function ans_Question(ans){
     else{
         //update location
         if(reqGeo==true){
+            alert("Location updated successfully!");
             getLocation();
         }
 
@@ -209,6 +210,8 @@ function handleInput(ans){
 }
 
 async function skipQ(){
+    // hide the skip popup
+    document.getElementById('popupSkip').style.display="none";
 
     const reply = await fetch(TH_SKIP_URL +"?session="+sessionID);
     const skip_obj = await reply.json();
