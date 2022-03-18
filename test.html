@@ -31,42 +31,48 @@
     <h3 style="background-color: yellow" >Testing <code>/list</code></h3>
         <input id="testList" type="number" placeholder="Optional parameter"/>
         <button class="button" onclick="test_list(document.getElementById('testList').value)">Run Test</button>
-        <button class="button" onclick="console.clear(); document.getElementById('testList').value=''">Clear</button>
+        <button class="button" onclick="document.getElementById('test-table').innerHTML='';">Clear</button>
     <hr>
         <div id="list">
-            *Results on console<br>*Optional parameter: NUMBER of treasure hunt should be listed
-<!--            <div>name:</div>-->
-<!--            <div>description:</div>-->
-<!--            <div>ownerEmail:</div>-->
-<!--            <div>secretCode:</div>-->
-<!--            <div>salt:</div>-->
-<!--            <div>visibility:</div>-->
-<!--            <div>startsOn:</div>-->
-<!--            <div>endsOn:</div>-->
-<!--            <div>maxDuration:</div>-->
-<!--            <div>shuffled:</div>-->
-<!--            <div>requiresAuthentication:</div>-->
-<!--            <div>emailResults:</div>-->
-<!--            <div>hasPrize:</div>-->
+            <table>
+            <tr>
+                <th>name</th>
+                <th>description</th>
+                <th>ownerEmail</th>
+                <th>secretCode</th>
+                <th>salt</th>
+                <th>visibility</th>
+                <th>startsOn</th>
+                <th>endsOn</th>
+                <th>maxDuration</th>
+                <th>shuffled</th>
+                <th>requiresAuthentication</th>
+                <th>emailResults</th>
+                <th>hasPrize</th>
+            </tr>
+            </table>
+                <table id="test-table">
+                </table>
         </div>
     <hr>
-<h3 style="background-color: yellow" >Testing <code>/start</code></h3>
-        <input id="testStart" type="text" placeholder="Optional parameter" value=""/>
-        <button class="button" onclick="test_start(document.getElementById('testStart').value)">Run Test</button>
-        <button class="button" onclick="console.clear(); document.getElementById('testStart').value=''">Clear</button>
+
+    <h3 style="background-color: yellow" >Testing <code>/start</code></h3>
+    <input id="testStart" type="text" placeholder="Optional parameter" value=""/>
+    <button class="button" onclick="test_start(document.getElementById('testStart').value)">Run Test</button>
+    <button class="button" onclick="console.clear(); getElementById('test-output').innerHTML='';">Clear</button>
+    <div id="test-output"></div>
     <hr>
-        <div id="start">
-            *Results on console<br>
-            *Optional parameter (not case-sensitive): type of error
-            <ul>
-                <li>INACTIVE</li>
-                <li>EMPTY</li>
-                <li>PLAYER</li>
-                <li>APP</li>
-                <li>UNKNOWN</li>
-                <li>MISSING_PARAMETER</li>
-            </ul>
-        </div>
+    <div id="start">
+        *Optional parameter (not case-sensitive): type of error
+        <ul>
+            <li>INACTIVE</li>
+            <li>EMPTY</li>
+            <li>PLAYER</li>
+            <li>APP</li>
+            <li>UNKNOWN</li>
+            <li>MISSING_PARAMETER</li>
+        </ul>
+    </div>
     <hr>
 
     <h3 style="background-color: yellow" >Testing <code>/question</code></h3>
