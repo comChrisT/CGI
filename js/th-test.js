@@ -69,3 +69,29 @@ async function test_Question(parameter1,parameter2,parameter3,parameter4) {
     console.log(test);
 
 }
+
+async function test_Answer(parameter1,parameter2,parameter3) {
+
+    const reply = await fetch(TH_ANSWER_URL+"?"+parameter1+"&"+parameter2+"&"+parameter3);
+    const test = await reply.json();
+
+    // On console
+    console.log("API request");
+    console.log(TH_ANSWER_URL+"?"+parameter1+"&"+parameter2+"&"+parameter3);
+    console.log("Answer API:");
+    console.log(test);
+
+}
+
+async function test_Score(parameter1,parameter2,parameter3,parameter4) {
+
+    const reply = await fetch(TH_SCORE_URL+"?score="+parameter1);
+    const test = await reply.json();
+
+    // On console
+    console.log("API request");
+    console.log(TH_SCORE_URL+"?"+parameter1);
+    console.log("Score API:");
+    console.log(test);
+
+}
