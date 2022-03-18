@@ -10,7 +10,7 @@ const TH_SKIP_URL = TH_TEST_URL+"skip";
 
 async function test_list(parameter) {
 
-    const reply = await fetch(TH_LIST_URL+"?number-of-ths="+par);
+    const reply = await fetch(TH_LIST_URL+"?number-of-ths="+parameter);
     const test = await reply.json();
 
     // On console
