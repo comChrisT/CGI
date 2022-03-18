@@ -17,12 +17,25 @@ async function test_list(parameter) {
     console.log("List API:");
     console.log(test);
 
-    // for(let i = 0; i < test.treasureHunts.length; i++) {
-    //     document.getElementById("list").innerHTML
-    //         +="<div>"+test.treasureHunts[i].name+"</div>"
-    //         +"<div>"+test.treasureHunts[i].description+"</div>";
-    //
-    // }
+     for(let i = 0; i < test.treasureHunts.length; i++) {
+
+         document.getElementById("test-table").innerHTML
+             +="<tr class='output-tr'>"+
+                "<td class='output-td'>"+test.treasureHunts[i].name+"</td>"+
+                "<td class='output-td'>"+test.treasureHunts[i].description+"</td>"+
+                "<td class='output-td'>"+test.treasureHunts[i].ownerEmail+"</td>"+
+                "<td class='output-td'>"+test.treasureHunts[i].secretCode+"</td>"+
+                "<td class='output-td'>"+test.treasureHunts[i].salt+"</td>"+
+                "<td class='output-td'>"+test.treasureHunts[i].visibility+"</td>"+
+                "<td class='output-td'>"+test.treasureHunts[i].startsOn+"</td>"+
+                "<td class='output-td'>"+test.treasureHunts[i].endsOn+"</td>"+
+                "<td class='output-td'>"+test.treasureHunts[i].maxDuration+"</td>"+
+                "<td class='output-td'>"+test.treasureHunts[i].shuffled+"</td>"+
+                "<td class='output-td'>"+test.treasureHunts[i].requiresAuthentication+"</td>"+
+                "<td class='output-td'>"+test.treasureHunts[i].emailResults+"</td>"+
+                "<td class='output-td'>"+test.treasureHunts[i].hasPrize+"</td>"+
+                "</tr>";
+     }
 
 
 }
@@ -37,6 +50,10 @@ async function test_start(parameter) {
     console.log(TH_START_URL+"?player="+parameter);
     console.log("Start API:");
     console.log(test);
+   if(test.status!="OK"){
+    document.getElementById("test-output").innerHTML+=
+    "<p>"+test.errorMessages+"</p>";
+    }
 
 }
 
