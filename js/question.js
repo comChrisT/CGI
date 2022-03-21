@@ -166,9 +166,8 @@ async function ans_Question(ans){
         popUP("Connection error, Please make sure you have an internet connection");
     }
     else{
-        //update location
+        // Update location
         if(reqGeo==true){
-            alert("Location updated successfully!");
             getLocation();
         }
 
@@ -192,6 +191,7 @@ async function ans_Question(ans){
 
 }
 
+// verification, validation
 function handleInput(ans){
 
     // if answer is not provided
