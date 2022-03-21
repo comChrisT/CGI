@@ -3,5 +3,5 @@
 
 ## The team members are:<br>
 #### Christos Topaka<br>
-#### Iraklis Tchanturia<br>
 #### Guowei Vasiliou<br>
+#### Iraklis Tchanturia<br>
