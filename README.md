@@ -1,5 +1,5 @@
 ##' TEAM CGI
-##'A project to create a treasure hunt web application
+##'A project to create a treasure hunt web application using the code cyprus Treasure Hunt API
 
 ##'The team members are:
 -Christos Topaka<br>
