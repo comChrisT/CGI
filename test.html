@@ -1,96 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Testing framework</title>
+    <style>
+        table {
+            width: 100%;
+            border: 1px solid deepskyblue;
+            text-align: left;
+        }
+        th, td {
+            border-bottom: 1px solid gray;
+            text-align: left;
+            max-width:20px;
+            min-width: 20px;
+            word-break: break-word;
+            font-size: medium;
+        }
+        .fail{
+            color: red;
+        }
+        .pass {
+            color:green;
+        }
+    </style>
 </head>
 <body>
 
 
-    <h1>Testing page</h1>
+<h1>Testing page</h1>
 
-    <p>This is the page describing how this app was tested. Testing usually comprises of <i>verification</i> and <i>validation</i>.</p>
+<p>This is the page describing how this app was tested. Testing usually comprises of <i>verification</i> and <i>validation</i>.</p>
 
-    <p>As an example of verification you can include Unit Tests (see below), and as an example of validation we </p>
+<p>As an example of verification you can include Unit Tests (see below), and as an example of validation we </p>
 
-    <h2>User Acceptance Plan</h2>
+<h2>User Acceptance Plan</h2>
 
-    <p>Here describe the User Acceptance plan you formed, and justify how your app performed to it.</p>
+<p>Here describe the User Acceptance plan you formed, and justify how your app performed to it.</p>
 
-    <h2>Usability Assessment</h2>
+<h2>Usability Assessment</h2>
 
-    <p>Assess your app's performance when assessed using the standard Nielsen's Heuristics</p>
+<p>Assess your app's performance when assessed using the standard Nielsen's Heuristics</p>
 
-    <h2>Unit Tests</h2>
+<h2>Unit Tests</h2>
 
-    <p>The Unit Tests make use of the corresponding Testing API available at <a href="https://codecyprus.org/th/testing" target="_blank">https://codecyprus.org/th/testing</a>.</p>
+<p>The Unit Tests make use of the corresponding Testing API available at <a href="https://codecyprus.org/th/testing" target="_blank">https://codecyprus.org/th/testing</a>.</p>
 
-    <div id="loader" class="loader" hidden></div>
+<div id="loader" class="loader" hidden></div>
 
 
-    <h3 style="background-color: yellow" >Testing <code>/list</code></h3>
-        <input id="testList" type="number" placeholder="Optional parameter"/>
-        <button class="button" onclick="test_list(document.getElementById('testList').value)">Run Test</button>
-        <button class="button" onclick="console.clear(); document.getElementById('testList').value=''">Clear</button>
-    <hr>
-        <div id="list">
-            *Results on console<br>*Optional parameter: NUMBER of treasure hunt should be listed
-<!--            <div>name:</div>-->
-<!--            <div>description:</div>-->
-<!--            <div>ownerEmail:</div>-->
-<!--            <div>secretCode:</div>-->
-<!--            <div>salt:</div>-->
-<!--            <div>visibility:</div>-->
-<!--            <div>startsOn:</div>-->
-<!--            <div>endsOn:</div>-->
-<!--            <div>maxDuration:</div>-->
-<!--            <div>shuffled:</div>-->
-<!--            <div>requiresAuthentication:</div>-->
-<!--            <div>emailResults:</div>-->
-<!--            <div>hasPrize:</div>-->
-        </div>
-    <hr>
+<h3 style="background-color: yellow" >Testing <code>/list</code></h3>
+<input id="testList" type="number" placeholder="Optional parameter"/>
+<button class="button" onclick="test_list(document.getElementById('testList').value)">Run Test</button>
+<button class="button" onclick="document.getElementById('test-table').innerHTML='';document.getElementById('result').innerHTML=''; ">Clear</button>
+<hr>
+<div id="list">
+    *Clear after every test<br>
+    *Default value = 10
+    <br>
+    <br>
+    <h2>TESTING TABLE</h2>
+    <table>
+        <tr>
+            <th>name</th>
+            <th>description</th>
+            <th>ownerEmail</th>
+            <th>secretCode</th>
+            <th>salt</th>
+            <th>visibility</th>
+            <th>startsOn</th>
+            <th>endsOn</th>
+            <th>maxDuration</th>
+            <th>shuffled</th>
+            <th>requiresAuthentication</th>
+            <th>emailResults</th>
+            <th>hasPrize</th>
+        </tr>
+    </table>
+    <table id="test-table">
+    </table>
+</div>
+<br>
+<br>
+<h2>TESTING RESULT</h2>
+<div>
+    <table>
+        <tr>
+            <th>Input</th>
+            <th>Output</th>
+            <th>Expected</th>
+            <th><span class="pass">PASS</span>/<span class="fail">FAIL</span></th>
+        </tr>
+    </table>
+    <table id="result">
+    </table>
+</div>
+<hr>
 
-    <h3 style="background-color: yellow" >Testing <code>/start</code></h3>
-        <input id="testStart" type="text" placeholder="Optional parameter"/>
-        <button class="button" onclick="test_start(document.getElementById('testStart').value)">Run Test</button>
-        <button class="button" onclick="console.clear(); document.getElementById('testStart').value=''">Clear</button>
-    <hr>
-        <div id="start">
-            *Results on console<br>
-            *Optional parameter (not case-sensitive): type of error
-            <ul>
-                <li>INACTIVE</li>
-                <li>EMPTY</li>
-                <li>PLAYER</li>
-                <li>APP</li>
-                <li>UNKNOWN</li>
-                <li>MISSING_PARAMETER</li>
-            </ul>
-        </div>
-    <hr>
+<h3 style="background-color: yellow" >Testing <code>/start</code></h3>
+<input id="testStart" type="text" placeholder="Optional parameter" value=""/>
+<button class="button" onclick="test_start(document.getElementById('testStart').value)">Run Test</button>
+<button class="button" onclick="console.clear(); getElementById('start-result').innerHTML='';">Clear</button>
+<hr>
+<div id="start">
+    *Optional parameter (not case-sensitive): type of error
+    <ul>
+        <li>INACTIVE</li>
+        <li>EMPTY</li>
+        <li>PLAYER</li>
+        <li>APP</li>
+        <li>UNKNOWN</li>
+        <li>MISSING_PARAMETER</li>
+    </ul>
+</div>
+<h2>TESTING RESULT</h2>
+<div id="start-output">
+    <table>
+        <tr>
+            <th>Input</th>
+            <th>Output</th>
+            <th>Expected</th>
+            <th><span class="pass">PASS</span>/<span class="fail">FAIL</span></th>
+        </tr>
+    </table>
+    <table id="start-result">
+    </table>
+</div>
 
-    <h3 style="background-color: yellow" >Testing <code>/question</code></h3>
-    <input id="testQuestion" type="text" placeholder="Four optional parameter"/>
-    <button class="button" onclick="test_Question(document.getElementById('testQuestion').value)">Run Test</button>
-    <button class="button" onclick="console.clear(); document.getElementById('testQuestion').value=''">Clear</button>
-    <hr>
-    <div id="question">
-        *Results on console<br>
-        *Optional parameter (not case-sensitive): type of error
-        <ul>
-            <li>COMPLETED</li>
-            <li>Type of question: BOOLEAN, MCQ, INTEGER, NUMERIC or TEXT.</li>
-            <li>CAN-BE-SKIPPED</li>
-            <li>REQUIRES-LOCATION</li>
-        </ul>
+<hr>
+
+<h3 style="background-color: yellow" >Testing <code>/question</code></h3>
+<input id="testQuestion1" type="text" placeholder="completed" value=""/>
+<input id="testQuestion2" type="text" placeholder="type" value=""/>
+<input id="testQuestion3" type="text" placeholder="can-be-skipped" value=""/>
+<input id="testQuestion4" type="text" placeholder="requires-location" value=""/>
+<button class="button" onclick="test_Question(document.getElementById('testQuestion1').value, document.getElementById('testQuestion2').value,
+    document.getElementById('testQuestion3').value, document.getElementById('testQuestion4').value)">Run Test</button>
+<button class="button" onclick="console.clear();getElementById('question-result').innerHTML='';">Clear</button>
+<hr>
+<div id="question">
+    *Optional parameter (case-sensitive): type of error<br>
+    *Input name of parameter for parameter=true, no input for parameter=false<br>
+      e.g completed for completed = true OR nothing for completed = false<br>
+        if other value entered default value used --> false
+    <ul>
+        <li>completed</li>
+        <li>Type of question: boolean, mcq, integer, numeric or text.</li>
+        <li>can-be-skipped</li>
+        <li>requires-location</li>
+    </ul>
+</div>
+<h2>TESTING RESULT</h2>
+<div id="question-output">
+    <table>
+        <tr>
+            <th>Input</th>
+            <th>Output</th>
+            <th>Expected</th>
+            <th><span class="pass">PASS</span>/<span class="fail">FAIL</span></th>
+        </tr>
+    </table>
+    <table id="question-result">
+    </table>
+</div>
+
+<hr>
+
+<h3 style="background-color: yellow" >Testing <code>/answer</code></h3>
+<input id="testAnswer1" type="text" placeholder="correct" value=""/>
+<input id="testAnswer2" type="text" placeholder="completed" value=""/>
+<input id="testAnswer3" type="text" placeholder="expired" value=""/>
+<button class="button" onclick="test_Answer(document.getElementById('testAnswer1').value, document.getElementById('testAnswer2').value,
+    document.getElementById('testAnswer3').value)">Run Test</button>
+<button class="button" onclick="console.clear();getElementById('answer-result').innerHTML='';">Clear</button>
+<hr>
+<div id="answer">
+    *Results on console<br>
+    *Optional parameter (not case-sensitive): type of error<br>
+    *Input name of parameter for parameter=true, no input for parameter=false<br>
+    e.g completed for completed = true OR nothing for completed = false<br>
+    if other value entered default value used --> false<br>
+    *If expired used correct and completed set to false automatically
+    <ul>
+        <li>CORRECT</li>
+        <li>COMPLETED</li>
+        <li>EXPIRED</li>
+    </ul>
+</div>
+<h2>TESTING RESULT</h2>
+<div id="answer-output">
+    <table>
+        <tr>
+            <th>Input</th>
+            <th>Output</th>
+            <th>Expected</th>
+            <th><span class="pass">PASS</span>/<span class="fail">FAIL</span></th>
+        </tr>
+    </table>
+    <table id="answer-result">
+    </table>
+</div>
+<hr>
+
+<h3 style="background-color: yellow" >Testing <code>/score</code></h3>
+<input id="testScore1" type="number" placeholder="score" value=""/>
+<input id="testScore2" type="text" placeholder="completed" value=""/>
+<input id="testScore3" type="text" placeholder="finished" value=""/>
+<input id="testScore4" type="text" placeholder="error" value=""/>
+<button class="button" onclick="test_Score(document.getElementById('testScore1').value, document.getElementById('testScore2').value,
+    document.getElementById('testScore3').value, document.getElementById('testScore4').value)">Run Test</button>
+<button class="button" onclick="console.clear();getElementById('score-result').innerHTML='';">Clear</button>
+<br>FOR BOOLEAN: *Input name of parameter for parameter=true, no input for parameter=false<br>
+e.g completed for completed = true OR nothing for completed = false<br>
+if other value entered default value used --> false<br>
+*if error used other parameters set to default --> false<br>
+*if integer given over 1000 then it's set to 1000<br>
+similarly when under -1000, it is set to -1000
+<p>*score (Give an integer number)</p>
+<p>*completed (bool)</p>
+<p>*finished (bool)</p>
+<p>*error (bool)</p>
+<hr>
+    <h2>TESTING RESULT</h2>
+    <div id="score-output">
+        <table>
+            <tr>
+                <th>Input</th>
+                <th>Output</th>
+                <th>Expected</th>
+                <th><span class="pass">PASS</span>/<span class="fail">FAIL</span></th>
+            </tr>
+        </table>
+        <table id="score-result">
+        </table>
     </div>
-    <hr>
 
-    <!--Load the API JavaScript-->
-    <script src="js/th-test.js"></script>
-    <script>
+<hr>
 
-    </script>
+<h3 style="background-color: yellow" >Testing <code>/leaderboard</code></h3>
+<input id="testLeaderboard1" type="number" placeholder="size" value=""/>
+<input id="testLeaderboard2" type="text" placeholder="sorted" value=""/>
+<input id="testLeaderboard3" type="text" placeholder="hasPrize" value=""/>
+<button class="button" onclick="test_Leaderboard(document.getElementById('testLeaderboard1').value, document.getElementById('testLeaderboard2').value,
+    document.getElementById('testLeaderboard3').value)">Run Test</button>
+<button class="button" onclick="console.clear();getElementById('leaderboard-result').innerHTML='';">Clear</button>
+<br>FOR BOOLEAN: *Input name of parameter for parameter=true, no input for parameter=false<br>
+e.g completed for completed = true OR nothing for completed = false<br>
+if other value entered default value used --> false<br>
+*FOR SIZE: default value is 42
+<p>*score (Give an integer number)</p>
+<p>*sorted (bool)</p>
+<p>*hasPrize (bool)</p>
+<hr>
+<h2>TESTING RESULT</h2>
+<div id="leaderboard-output">
+    <table>
+        <tr>
+            <th>Input</th>
+            <th>Output</th>
+            <th>Expected</th>
+            <th><span class="pass">PASS</span>/<span class="fail">FAIL</span></th>
+        </tr>
+    </table>
+    <table id="leaderboard-result">
+    </table>
+</div>
+<hr>
+
+<!--Load the API JavaScript-->
+<script src="js/th-test.js"></script>
+<script>
+
+</script>
 </body>
 </html>

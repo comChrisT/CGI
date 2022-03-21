@@ -1,0 +1,57 @@
+body{
+
+    background-image: url("../images/404page/ben-o-bro-.jpg");
+    /*From Ben O Bro, source: https://unsplash.com/photos/4SCq7H1Ami0  */
+    background-size: cover;
+    background-position: bottom;
+    height: 100vh;
+
+}
+
+
+
+body p{
+    color: white;
+    font-size: xxx-large;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+    font-family: Arial, serif;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+body button{
+    padding: 25px 50px 25px 50px;
+    color: ghostwhite;
+    background-color: #8fcc88;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+
+
+}
+
+body button:hover{
+    box-shadow: 0 0 22px 7px ;
+    background-color: #000428;
+}
+
+body h1{
+    display: block;
+    height: auto;
+    text-align: center;
+}
+
+#firstP {
+    text-decoration: underline;
+
+}
+
+.subText{
+    font-size:25px;
+}
+

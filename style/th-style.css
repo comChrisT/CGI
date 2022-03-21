@@ -218,6 +218,34 @@ body{
 }
 
 /*---| question page style |---*/
+#popupSkip{
+    z-index: 1;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+    background-color: #9e9e9e9c;
+}
+.skipDes{
+    width: 60%;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+}
+.skipDes p{
+    margin-top: 26px;
+    margin-bottom: 16px;
+    word-wrap: break-word;
+
+}
+.skipDes button{
+    padding: 6px 12px;
+    font-size: 120%;
+}
+
 #BOOLEAN{
     display: none;
 }
@@ -335,6 +363,10 @@ body{
     }
     .Chall_list{
         min-width: 80%;
+    }
+    .skipDes button{
+        padding: 3px 6px;
+        font-size: 90%;
     }
 }
 /* If the screen size is 425px or less */

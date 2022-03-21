@@ -32,6 +32,20 @@
     </ul>
 </div>
 
+<!--skip popup-->
+<div id="popupSkip">
+    <div class="popBG">
+        <div class="TitleContainer">
+            <h2 style="text-align: center" class="title">Notice</h2>
+        </div>
+        <div class="skipDes">
+            <p style="text-align: center">You lose points when skipping ! </p>
+            <button class="buttonType" onclick="skipQ()">Continue</button>
+            <button class="buttonType" onClick="document.getElementById('popupSkip').style.display='none'">Cancel</button>
+        </div>
+    </div>
+</div>
+
 <!--Loader-->
 <div id="loader" style="display: none">Loading ...</div>
 
@@ -91,7 +105,7 @@
             <div class="pScore"><b>Score: </b><span id="pScore" style="color: darkblue"></span></div>
         </div>
         <div class="pOptions">
-            <div id="skipBtn" class="oBtn" onclick="skipQ()">Skip</div>
+            <div id="skipBtn" class="oBtn" onclick="document.getElementById('popupSkip').style.display='block'">Skip</div>
             <div class="oBtn" onclick="window.location.replace('leaderboard.html')">Leaderboard</div>
         </div>
     </div>

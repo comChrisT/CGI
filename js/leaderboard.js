@@ -23,7 +23,6 @@ async function handleLeaderboard(leaderboard) {
     //CURRENT player rank
     let current_position=1;
     let playerName=getCookie(COOKIE_PLAYER_NAME);
-    console.log(playerName);
     for(const entry of leaderboardArray) {
 
         if(playerName===entry['player']){
@@ -86,7 +85,7 @@ async function handleLeaderboard(leaderboard) {
         }
         else
             html +=
-                "<li>"+
+                "<li id='current-player'>"+
                 "<div class='player-name'>"+
                 "<span class='player-rank'>"+
                 position+
@@ -99,7 +98,7 @@ async function handleLeaderboard(leaderboard) {
 
         position++;
     }
-    console.log(current_position);
+
     //function to get score with /th/api/score API call
     async function LeaderboardScore() {
 
