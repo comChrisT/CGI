@@ -38,7 +38,7 @@ async function test_list(parameter) {
     }
     let defaultValue = parameter;
     let pass = 0;
-    if(parameter=="" || parameter<0 ||  parameter1 > parameter1.MAX_SAFE_INTEGER){
+    if(parameter=="" || parameter<0 ||  parameter > parameter.MAX_SAFE_INTEGER){
         parameter=10;
     }
     if(test.treasureHunts.length==parameter){
