@@ -1,4 +1,4 @@
-##' Group2
+##' TEAM CGI
 ##'A project to create a treasure hunt web application
 
 ##'The team members are:
