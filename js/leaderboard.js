@@ -1,50 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaderboard</title>
-    <link rel="icon" href="images/th/th-small-flag.png">
-    <!--Style sheets -->
-    <link rel="stylesheet" href="style/leaderboard.css"/>
-    <link rel="stylesheet" type="text/css" href="style/th-style.css">
-    <!--Js files-->
-    <script src="js/cookies.js"></script>
-    <script src="js/th.js"></script>
-    <script src="js/question.js"></script>
-    <script src ="js/leaderboard.js"></script>
-</head>
-<body>
+async function getLeaderBoard(url) {
+// create and invoke the http request
+    fetch(url, { method: "GET"})
+        .then(response => response.json())
+        .then(json => handleLeaderboard(json));
+}
 
-<div class="TopNav">
-    <!--Logo on left-->
-    <img class="TopNav_logo"  src="images/th/th-logo.png" alt="logo">
-    <!--Menu on right-->
-    <ul class="TopNav_list">
-        <li><a href="leaderboard.html">REFRESH</a></li>
-        <li><a id="displayB" href="questions.html">BACK</a></li>
-        <li><a id="displayA" onclick="playAgain()" style="display: none; cursor: pointer">PLAY AGAIN</a></li>
-    </ul>
-</div>
 
-<div id="player-rank"></div>
-<h2>Leaderboard</h2>
-<div class="leaderboard-container">
-<ul id="leaderboard"></ul>
-</div>
+let url = TH_LEADERBOARD_URL + "?sorted&session="+sessionID; // form url
+getLeaderBoard(url);
 
-<script>
-    async function end(){
-        const reply =  await fetch(TH_SCORE_URL +"?session="+sessionID);
-        const data_obj =  await reply.json();
+/**
+ * A function to handle the JSON-formatted reply of '/leaderboard' call
+ */
+async function handleLeaderboard(leaderboard) {
 
-        if(data_obj.complete==true || data_obj.finished==true) {
-            document.getElementById("displayB").style.display = "none";
-            document.getElementById("displayA").style.display = "inline";
+    let html = ""; // used to include HTML code for the table rows
+    let leaderboardArray = leaderboard['leaderboard'];
+
+    //player rank
+    let position=1;
+
+    //CURRENT player rank
+    let current_position=1;
+
+    //get player name from cookie
+    let playerName=getCookie(COOKIE_PLAYER_NAME);
+
+    for(const entry of leaderboardArray) {
+
+        //check if entry is the current player
+        if(playerName===entry['player']){
+            current_position=position;
+        }
+
+        //Rank specific output
+        if(position===1 && playerName!==entry['player']){
+            html +=
+                "<li id='gold'>"+
+                "<div class='player-name'>"+
+                "<span class='player-rank'>"+
+                position+
+                "."+
+                "</span>"+
+                entry['player']+"</div>"+
+                "<div class='score'>"+entry['score']+
+                "</div>"+
+                "</li>"
+
+        }
+        else if(position===2&& playerName!==entry['player'] && playerName.length < 20){
+            html +=
+                "<li id='silver'>"+
+                "<div class='player-name'>"+
+                "<span class='player-rank'>"+
+                position+
+                "."+
+                "</span>"+
+                entry['player']+"</div>"+
+                "<div class='score'>"+entry['score']+
+                "</div>"+
+                "</li>"
+
+        }
+        else if (position===3&& playerName!==entry['player'] && playerName.length < 20){
+            html +=
+                "<li id='bronze'>"+
+                "<div class='player-name'>"+
+                "<span class='player-rank'>"+
+                position+
+                "."+
+                "</span>"+
+                entry['player']+"</div>"+
+                "<div class='score'>"+entry['score']+
+                "</div>"+
+                "</li>"
+
+        }
+
+        //any other player
+        else if(playerName!==entry['player']){
+            html +=
+                "<li>"+
+                "<div class='player-name'>"+
+                "<span class='player-rank'>"+
+                position+
+                "."+
+                "</span>"+
+                entry['player']+"</div>"+
+                "<div class='score'>"+entry['score']+
+                "</div>"+
+                "</li>"
+        }
+        //current player
+        else
+            html +=
+                "<li id='current-player'>"+
+                "<div class='player-name'>"+
+                "<span class='player-rank'>"+
+                position+
+                "."+
+                "</span>"+
+                entry['player']+"</div>"+
+                "<div class='score'>"+entry['score']+
+                "</div>"+
+                "</li>"
+
+        position++;
+    }
+
+    //function to get score with /th/api/score API call
+    async function LeaderboardScore() {
+
+        const reply = await fetch(TH_SCORE_URL + "?session=" + sessionID);
+        const score_obj = await reply.json();
+        if(score_obj.status=="OK"){
+            document.getElementById("player-rank").innerHTML+="<h3>"+"With "+score_obj.score+"pts"+"</h3>";
         }
     }
-end();
+    //personalised message for current player
+    document.getElementById("player-rank").innerHTML+=
+        "<h2>"+"Your position:  "+current_position+"</h2>";
 
-</script>
-</body>
-</html>
+    LeaderboardScore();
+
+    let leaderboardElement = document.getElementById('leaderboard');
+    leaderboardElement.innerHTML += html; // append generated HTML to existing
+}
