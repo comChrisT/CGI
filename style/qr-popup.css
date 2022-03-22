@@ -7,6 +7,7 @@
 }
 #qr-output{
     display: flex;
+    justify-content: center;
 }
 /* QR popup background */
 .popup {
@@ -29,7 +30,7 @@
     margin: 20% auto; /* 20% from the top and centered */
     padding: 10px;
     border: 1px solid #888;
-    width: 85%; 
+    width: 85%;
 }
 
 /* x button */
