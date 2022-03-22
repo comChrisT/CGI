@@ -26,6 +26,7 @@
         <li><a id="displayA" onclick="playAgain()" style="display: none; cursor: pointer">PLAY AGAIN</a></li>
     </ul>
 </div>
+
 <div id="player-rank"></div>
 <h2>Leaderboard</h2>
 <div class="leaderboard-container">
@@ -37,13 +38,9 @@
         const reply =  await fetch(TH_SCORE_URL +"?session="+sessionID);
         const data_obj =  await reply.json();
 
-        if(data_obj.complete==true || data_obj.finished==true){
-            document.getElementById("displayB").style.display="none";
-            document.getElementById("displayA").style.display="inline";
-        }
-        else{
-            // document.getElementById("displayB").style.display="none";
-            // document.getElementById("displayA").style.display="inline";
+        if(data_obj.complete==true || data_obj.finished==true) {
+            document.getElementById("displayB").style.display = "none";
+            document.getElementById("displayA").style.display = "inline";
         }
     }
 end();
