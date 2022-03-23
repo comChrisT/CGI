@@ -15,13 +15,10 @@ async function get_List() {
     document.getElementById("loader").style.display="block";
     document.getElementById("mainContent").style.display="none";
 
-
     // call the web service and await for the reply to come back and be converted to JSON
     const reply = await fetch(TH_LIST_URL);
     const list_obj = await reply.json();
-
-    console.log("List API:");console.log(list_obj);//***********************|    Test    |***********************
-
+    
     let treasureHuntsArray = list_obj.treasureHunts;
     let chaList = "<ul class='Chall_list'>"; // dynamically form the HTML code to display the list of treasure hunts
     let currTime = new Date().getTime(); // Get current time (miliseconds)
@@ -62,8 +59,6 @@ async function start(){
     // Request from server
     const reply = await fetch(TH_START_URL +"?player="+playerNAME+"&app="+ChallengeNAME+"&treasure-hunt-id="+ChallengeUUID);
     const start_obj = await reply.json();
-
-    console.log("Question API:");console.log(start_obj);//***********************|    Test    |***********************
 
     // checks for errors
     if(start_obj.status=="OK") {
