@@ -72,6 +72,7 @@ body{
 /* Parent container */
 #mainContent{
     display: none;
+    margin-bottom: -50px;
 }
 /* TOP - child container */
 .instruction{
@@ -99,6 +100,7 @@ body{
 /* BOT - child container */
 .interaction{
     text-align: center;
+    margin-bottom: 50px;
 }
 
 /* button style */
@@ -299,6 +301,10 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.BotNav,
+.push{
+    height: 50px;
 }
 .pInfo{
     background-color: #c9f1fb;
