@@ -43,8 +43,6 @@ async function Score(){
     const reply = await fetch(TH_SCORE_URL +"?session="+sessionID);
     const score_obj = await reply.json();
 
-    console.log("Score API:");console.log(score_obj);//***********************|    Test    |***********************
-
     if(score_obj.status=="OK"){
         document.getElementById("pScore").innerHTML=score_obj.score;
     }
@@ -67,8 +65,6 @@ async function get_Question() {
 
     const reply = await fetch(TH_QUESTION_URL +"?session="+sessionID);
     const question_obj = await reply.json();
-
-    console.log("Question API:");console.log(question_obj);//***********************|    Test    |***********************
 
     // check status
     if(question_obj.status=="OK") {
@@ -126,8 +122,6 @@ async function updateLocation(currPos){
     const reply = await fetch(TH_LOCATION_URL+"?session="+sessionID+"&latitude="+currPos.coords.latitude+"&longitude="+currPos.coords.longitude);
     const location_obj = await reply.json();
 
-    console.log("Location API:");console.log(location_obj);//***********************|    Test    |***********************
-
     if(location_obj.status=="ERROR"){
         alert(location_obj.status+":\n"+"1. Session expired\n2. Missing or Invalid parameters: session, latitude, longitude");
         window.location.replace("leaderboard.html?sessionID="+sessionID);
@@ -174,8 +168,6 @@ async function ans_Question(ans){
         const reply = await fetch(TH_ANSWER_URL +"?session="+sessionID+"&answer="+ans);
         const answer_obj = await reply.json();
 
-        console.log("Answer API:");console.log(answer_obj);//***********************|    Test    |***********************
-
         if(answer_obj.status=="OK"){
             popUP(answer_obj.message);
             Score();
@@ -215,8 +207,6 @@ async function skipQ(){
 
     const reply = await fetch(TH_SKIP_URL +"?session="+sessionID);
     const skip_obj = await reply.json();
-
-    console.log("Skip API:");console.log(skip_obj);//***********************|    Test    |***********************
 
     if(skip_obj.status=="OK"){
         if(skip_obj.completed==true){
